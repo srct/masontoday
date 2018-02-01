@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -11,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
+import { fetchData } from './data';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -19,7 +14,23 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component<{}> {
+export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      data: null
+    }
+  }
+
+  componentWillMount(){
+    //getting new data from server
+    fetchData().then((data) => {
+      // if (!data) return;      
+      this.setState({
+        data: data
+      });
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
