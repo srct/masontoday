@@ -23,7 +23,7 @@ export default class App extends Component {
     }
   }
 
-  componentWillMount(){
+  componentWillMount() {
     //getting new data from server
     fetchData().then((data) => {
       // if (!data) return;      
@@ -32,6 +32,7 @@ export default class App extends Component {
       });
     })
   }
+
   render() {
     return (
 		<EventList 
