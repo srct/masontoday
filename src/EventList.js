@@ -32,7 +32,7 @@ export default class EventList extends Component {
 		//getting new data from server
 		fetchData().then((data) => {
 		  this.setState({
-			data: data
+				data: data
 		  });
 		})
 	}

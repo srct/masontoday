@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   listView: {
-	flex: 1,
-	margin: 16
+		flex: 1,
+		margin: 16
   },
   welcome: {
     fontSize: 20,
