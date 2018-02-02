@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 import { fetchData } from './data';
+import EventList from './EventList';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -33,17 +34,10 @@ export default class App extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+		<EventList 
+			style={styles.listView}
+			data={this.state.data}
+		/> 
     );
   }
 }
@@ -51,9 +45,14 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+	marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  listView: {
+	flex: 1,
+	margin: 16
   },
   welcome: {
     fontSize: 20,
