@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, FlatList, List, ListItem } from 'react-native';
+import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHighlight } from 'react-native';
 import { fetchData } from './data';
 
 class EventListItem extends Component {
+    onPress = () => {
+        //TODO: navigation to a details page
+        //TODO: pass in listitem as prop to details
+
+        //placeholder
+        console.log('click');
+    };
     render() {
-        return <Text style={{ fontSize: 20 }}>{this.props.location}</Text>;
+        return (
+            <TouchableHighlight style={styles.facility} onPress={this.onPress} underlayColor="grey">
+                <Text style={styles.facilityName}>{this.props.listitem.title}</Text>
+            </TouchableHighlight>
+        );
     }
 }
 
@@ -14,10 +25,11 @@ export default class EventList extends Component {
     }
 
     _renderItem = ({ item }) => {
-        return <EventListItem location={item.location} />;
+        return <EventListItem listitem={item} />;
     };
 
     render() {
+        // Adding a loading screen while app gets data
         if (!this.props.data) {
             return (
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -28,3 +40,18 @@ export default class EventList extends Component {
         return <FlatList data={this.props.data} renderItem={this._renderItem} />;
     }
 }
+const styles = StyleSheet.create({
+    facility: {
+        margin: 9,
+        marginTop: 0,
+        height: 70,
+        overflow: 'hidden',
+        backgroundColor: '#eaecef',
+        borderRadius: 10,
+        justifyContent: 'center',
+    },
+    facilityName: {
+        fontSize: 20,
+        paddingLeft: 10,
+    },
+});
