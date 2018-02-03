@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { fetchData } from './data';
 import EventList from './EventList';
 
@@ -27,7 +27,11 @@ export default class App extends Component {
     }
 
     render() {
-        return <EventList style={styles.listView} data={this.state.data} />;
+        return (
+            <SafeAreaView style={{ flex: 1 }}>
+                <EventList style={styles.listView} data={this.state.data} />
+            </SafeAreaView>
+        );
     }
 }
 

@@ -31,6 +31,13 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  for (NSString *family in [UIFont familyNames]) {
+    NSLog(@"%@", family);
+    for (NSString *font in [UIFont fontNamesForFamilyName:family]) {
+      NSLog(@"\t%@", font);
+    }
+  }
   return YES;
 }
 
