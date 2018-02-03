@@ -9,3 +9,22 @@ export async function fetchData() {
         return;
     }
 }
+
+function filterDataIntoDays(data) {
+    let days = [];
+    data.forEach(event => {
+        const daysAlreadyWithDate = days.filter(day => {
+            return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
+        });
+        // add the day to the days if it's not already there
+        if (daysAlreadyWithDate.length === 0) {
+            days.push({ dayofweek: event.dayofweek, dayofmonth: event.dayofmonth });
+        }
+    });
+    days.forEach(day => {
+        day.events = data.filter(event => {
+            return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
+        });
+    });
+    return days;
+}

@@ -3,6 +3,33 @@ import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHi
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { fetchData } from './data';
 
+class TimeInfo extends Component {
+    formatTime = (minutesFromMidnight) => {
+        let hours = Math.floor(minutesFromMidnight / 60);
+        let post = "";
+        if (hours < 12) {
+            post = "AM";
+        }
+        else {
+            post = "PM";
+            if (hours > 12) hours = hours % 12;
+        }
+        const minutes = minutesFromMidnight % 60;
+        return `${hours}:${minutes == 0 ? "00" : minutes} ${post}`;
+    }
+
+    render() {
+        return (
+            <View style={styles.infoLine}>
+                <FontAwesome>{Icons.clockO}</FontAwesome>
+                <Text style={styles.infoText}>
+                    {this.formatTime(this.props.startTime)}{' - '}{this.formatTime(this.props.endTime)}
+                </Text>
+            </View>
+        );
+    }
+}
+
 class EventListItem extends Component {
     onPress = () => {
         //TODO: navigation to a details page
@@ -20,13 +47,7 @@ class EventListItem extends Component {
                         <FontAwesome>{Icons.locationArrow}</FontAwesome>
                         <Text style={styles.infoText}>{this.props.listitem.location}</Text>
                     </View>
-                    {/* <View style={styles.infoLine}>
-                        <FontAwesome>{Icons.clockO}</FontAwesome>
-                        <Text style={styles.infoText}>
-                            {this.props.listitem.dayofweek}, {this.props.listitem.month}{' '}
-                            {this.props.listitem.dayofmonth}
-                        </Text>
-                    </View> */}
+                    <TimeInfo startTime={this.props.listitem.timestart} endTime={this.props.listitem.timestop} />
                 </View>
             </TouchableHighlight>
         );
