@@ -9,8 +9,8 @@ class DayCell extends Component {
         return (
             <View style={styles.day}>
                 <View style={styles.date}>
-                    <Text style={{ textAlign: 'center' }}>{this.props.date.dayofmonth}</Text>
-                    <Text style={{ textAlign: 'center' }}>{this.props.date.dayofweek}</Text>
+                    <Text style={styles.dayofmonth}>{this.props.date.dayofmonth}</Text>
+                    <Text style={styles.dayofweek}>{this.props.date.dayofweek}</Text>
                 </View>
                 <EventList data={this.props.events} />
             </View>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     // },
     day: {
         flex: 1,
-        flexDirection: 'row',
+        // flexDirection: 'row',
         margin: 8,
         marginTop: 0,
         marginBottom: 10,
@@ -74,6 +74,17 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     date: {
-        width: 65,
+        justifyContent: 'center',
+        flexDirection: 'row',
+        alignContent: 'center',
+        marginBottom: 8,
+    },
+    dayofmonth: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        marginRight: 4,
+    },
+    dayofweek: {
+        fontSize: 20,
     },
 });

@@ -46,7 +46,7 @@ export default class EventList extends Component {
         // Adding a loading screen while app gets data
         if (!this.props.data) {
             return (
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <View style={styles.loading}>
                     <Text>Loading data...</Text>
                 </View>
             );
@@ -55,16 +55,14 @@ export default class EventList extends Component {
     }
 }
 const styles = StyleSheet.create({
+    loading: { flex: 1, alignItems: 'center', justifyContent: 'center' },
     list: {
         margin: 0,
     },
     facility: {
-        margin: 8,
-        marginTop: 0,
         marginBottom: 10,
-        marginRight: 20, //not working??
         padding: 12,
-        paddingLeft: 8,
+        // paddingLeft: 8,
         // height: 70,
         // overflow: 'hidden',
         backgroundColor: '#eaecef',

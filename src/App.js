@@ -30,7 +30,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={styles.listView}>
                 <DayList style={styles.listView} data={this.state.data} />
             </SafeAreaView>
         );
@@ -38,25 +38,8 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginTop: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
     listView: {
         flex: 1,
-        margin: 16,
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+        // margin: 16,
     },
 });
