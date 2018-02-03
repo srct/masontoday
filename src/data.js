@@ -1,7 +1,7 @@
 export async function fetchData() {
     // Fetches data from api
     try {
-        let response = await fetch('http://34.234.214.232');
+        let response = await fetch('http://masontoday.zosman.com');
         //console.warn(response);
         let responseJson = response.json();
         return responseJson;
@@ -10,7 +10,7 @@ export async function fetchData() {
     }
 }
 
-function filterDataIntoDays(data) {
+export function filterDataIntoDays(data) {
     let days = [];
     data.forEach(event => {
         const daysAlreadyWithDate = days.filter(day => {

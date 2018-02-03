@@ -1,49 +1,26 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import { fetchData } from './data';
+import { fetchData, filterDataIntoDays } from './data';
 import EventList from './EventList';
 import DayList from './DayList';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            data: null,
+            days: null,
         };
     }
 
     componentWillMount() {
         //getting new data from server
         fetchData().then(data => {
-            // if (!data) return;
-            // data.forEach(e => console.warn(`${e.dayofweek} ${e.dayofmonth}`));
+            if (!data) return;
             this.setState({
-                days: this.filterDataIntoDays(data),
+                days: filterDataIntoDays(data),
             });
         });
     }
-
-    filterDataIntoDays = data => {
-        let days = [];
-        data.forEach(event => {
-            const daysAlreadyWithDate = days.filter(day => {
-                return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
-            });
-            // add the day to the days if it's not already there
-            if (daysAlreadyWithDate.length === 0) {
-                days.push({ dayofweek: event.dayofweek, dayofmonth: event.dayofmonth, month: event.month });
-            }
-        });
-        days.forEach(day => {
-            day.events = data.filter(event => {
-                return (
-                    event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth && event.month == day.month
-                );
-            });
-        });
-        return days;
-    };
 
     render() {
         return (
