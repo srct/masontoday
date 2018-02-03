@@ -4,27 +4,58 @@ import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { fetchData } from './data';
 
 class TimeInfo extends Component {
-    formatTime = (minutesFromMidnight) => {
+    formatTime = minutesFromMidnight => {
         let hours = Math.floor(minutesFromMidnight / 60);
-        let post = "";
+        let post = '';
         if (hours < 12) {
-            post = "AM";
-        }
-        else {
-            post = "PM";
+            post = 'AM';
+        } else {
+            post = 'PM';
             if (hours > 12) hours = hours % 12;
         }
         const minutes = minutesFromMidnight % 60;
-        return `${hours}:${minutes == 0 ? "00" : minutes} ${post}`;
-    }
+        return `${hours}:${minutes == 0 ? '00' : minutes} ${post}`;
+    };
 
     render() {
         return (
             <View style={styles.infoLine}>
                 <FontAwesome>{Icons.clockO}</FontAwesome>
                 <Text style={styles.infoText}>
-                    {this.formatTime(this.props.startTime)}{' - '}{this.formatTime(this.props.endTime)}
+                    {this.formatTime(this.props.startTime)}
+                    {' - '}
+                    {this.formatTime(this.props.endTime)}
                 </Text>
+            </View>
+        );
+    }
+}
+
+class LocationInfo extends Component {
+    render() {
+        return (
+            <View style={styles.infoLine}>
+                <FontAwesome>{Icons.locationArrow}</FontAwesome>
+                <Text style={styles.infoText}>{this.props.location}</Text>
+            </View>
+        );
+    }
+}
+
+class DescriptionInfo extends Component {
+    formatDescription = desc => {
+        const maxLength = 120;
+        let shortened = desc.substring(0, maxLength);
+        if (desc.length >= maxLength) shortened += '...';
+        return shortened;
+    };
+
+    render() {
+        if (this.props.description === 'Not not provided') return <View />;
+        return (
+            <View style={styles.description}>
+                <FontAwesome>{Icons.infoCircle}</FontAwesome>
+                <Text style={styles.infoText}>{this.formatDescription(this.props.description)}</Text>
             </View>
         );
     }
@@ -43,11 +74,9 @@ class EventListItem extends Component {
             <TouchableHighlight style={styles.facility} onPress={this.onPress} underlayColor="grey">
                 <View>
                     <Text style={styles.facilityName}>{this.props.listitem.title}</Text>
-                    <View style={styles.infoLine}>
-                        <FontAwesome>{Icons.locationArrow}</FontAwesome>
-                        <Text style={styles.infoText}>{this.props.listitem.location}</Text>
-                    </View>
+                    <LocationInfo location={this.props.listitem.location} />
                     <TimeInfo startTime={this.props.listitem.timestart} endTime={this.props.listitem.timestop} />
+                    <DescriptionInfo style={{ marginTop: 16 }} description={this.props.listitem.description} />
                 </View>
             </TouchableHighlight>
         );
@@ -96,7 +125,7 @@ const styles = StyleSheet.create({
     },
     facilityName: {
         marginLeft: 4,
-        marginBottom: 2,
+        marginBottom: 4,
         fontSize: 22,
         fontWeight: 'bold',
         color: '#006633',
@@ -106,6 +135,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         margin: 4,
         marginBottom: 0,
+        // fontFamily: 'FontAwesome5FreeSolid',
+    },
+    description: {
+        flex: 1,
+        flexDirection: 'row',
+        marginHorizontal: 4,
+        marginBottom: 0,
+        marginTop: 12,
         // fontFamily: 'FontAwesome5FreeSolid',
     },
     infoText: {

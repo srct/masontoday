@@ -4,14 +4,26 @@ import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { fetchData } from './data';
 import EventList from './EventList';
 
+class DayCellTitle extends Component {
+    render() {
+        return (
+            <View style={{ flex: 1, alignItems: 'center' }}>
+                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', marginBottom: 12 }}>
+                    <Text style={styles.dayofmonth}>{this.props.date.dayofweek}</Text>
+                    <Text style={styles.dayofweek}>
+                        {this.props.date.month} {this.props.date.dayofmonth}
+                    </Text>
+                </View>
+            </View>
+        );
+    }
+}
+
 class DayCell extends Component {
     render() {
         return (
             <View style={styles.day}>
-                <View style={styles.date}>
-                    <Text style={styles.dayofmonth}>{this.props.date.dayofmonth}</Text>
-                    <Text style={styles.dayofweek}>{this.props.date.dayofweek}</Text>
-                </View>
+                <DayCellTitle date={this.props.date} />
                 <EventList data={this.props.events} />
             </View>
         );
@@ -24,7 +36,12 @@ export default class DayList extends Component {
     }
 
     _renderItem = ({ item }) => {
-        return <DayCell date={{ dayofmonth: item.dayofmonth, dayofweek: item.dayofweek }} events={item.events} />;
+        return (
+            <DayCell
+                date={{ dayofmonth: item.dayofmonth, dayofweek: item.dayofweek, month: item.month }}
+                events={item.events}
+            />
+        );
     };
 
     render() {
@@ -47,6 +64,7 @@ const styles = StyleSheet.create({
     // },
     day: {
         flex: 1,
+
         // flexDirection: 'row',
         margin: 8,
         marginTop: 0,
@@ -58,13 +76,13 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     date: {
-        justifyContent: 'center',
+        flex: 1,
+        alignItems: 'center',
         flexDirection: 'row',
-        alignContent: 'center',
         marginBottom: 8,
     },
     dayofmonth: {
-        fontSize: 28,
+        fontSize: 24,
         fontWeight: 'bold',
         marginRight: 4,
     },

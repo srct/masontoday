@@ -24,7 +24,7 @@ export default class App extends Component {
         });
     }
 
-    filterDataIntoDays = (data) => {
+    filterDataIntoDays = data => {
         let days = [];
         data.forEach(event => {
             const daysAlreadyWithDate = days.filter(day => {
@@ -32,16 +32,18 @@ export default class App extends Component {
             });
             // add the day to the days if it's not already there
             if (daysAlreadyWithDate.length === 0) {
-                days.push({ dayofweek: event.dayofweek, dayofmonth: event.dayofmonth });
+                days.push({ dayofweek: event.dayofweek, dayofmonth: event.dayofmonth, month: event.month });
             }
         });
         days.forEach(day => {
             day.events = data.filter(event => {
-                return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
+                return (
+                    event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth && event.month == day.month
+                );
             });
         });
         return days;
-    }
+    };
 
     render() {
         return (
