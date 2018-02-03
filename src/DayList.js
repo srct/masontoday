@@ -21,7 +21,6 @@ class DayCell extends Component {
 export default class DayList extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
     }
 
     _renderItem = ({ item }) => {
@@ -29,30 +28,15 @@ export default class DayList extends Component {
     };
 
     render() {
-        if (!this.props.data) {
+        if (!this.props.days) {
             return (
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                     <Text>Loading data...</Text>
                 </View>
             );
         }
-        let days = [];
-        this.props.data.forEach(event => {
-            const daysAlreadyWithDate = days.filter(day => {
-                return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
-            });
-            // add the day to the days if it's not already there
-            if (daysAlreadyWithDate.length === 0) {
-                days.push({ dayofweek: event.dayofweek, dayofmonth: event.dayofmonth });
-            }
-        });
-        days.forEach(day => {
-            day.events = this.props.data.filter(event => {
-                return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
-            });
-        });
 
-        return <FlatList style={styles.list} data={days} renderItem={this._renderItem} />;
+        return <FlatList style={styles.list} data={this.props.days} renderItem={this._renderItem} />;
     }
 }
 

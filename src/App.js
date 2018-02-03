@@ -12,6 +12,7 @@ const instructions = Platform.select({
 export default class App extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             data: null,
         };
@@ -23,15 +24,34 @@ export default class App extends Component {
             // if (!data) return;
             // data.forEach(e => console.warn(`${e.dayofweek} ${e.dayofmonth}`));
             this.setState({
-                data: data,
+                days: this.filterDataIntoDays(data),
             });
         });
+    }
+
+    filterDataIntoDays = (data) => {
+        let days = [];
+        data.forEach(event => {
+            const daysAlreadyWithDate = days.filter(day => {
+                return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
+            });
+            // add the day to the days if it's not already there
+            if (daysAlreadyWithDate.length === 0) {
+                days.push({ dayofweek: event.dayofweek, dayofmonth: event.dayofmonth });
+            }
+        });
+        days.forEach(day => {
+            day.events = data.filter(event => {
+                return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
+            });
+        });
+        return days;
     }
 
     render() {
         return (
             <SafeAreaView style={styles.listView}>
-                <DayList style={styles.listView} data={this.state.data} />
+                <DayList style={styles.listView} days={this.state.days} />
             </SafeAreaView>
         );
     }
