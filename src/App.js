@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { fetchData, filterDataIntoDays } from './data';
-import EventList from './EventList';
-import DayList from './DayList';
+import EventList from './components/EventList';
+import DayList from './components/DayList';
 
 export default class App extends Component {
     constructor(props) {
