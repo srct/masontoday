@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHighlight } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
+import { formatTime } from '../data';
+
+// the list of events (the cells you see)
 
 class TimeInfo extends Component {
-    formatTime = minutesFromMidnight => {
-        let hours = Math.floor(minutesFromMidnight / 60);
-        let post = '';
-        if (hours < 12) {
-            post = 'AM';
-        } else {
-            post = 'PM';
-            if (hours > 12) hours = hours % 12;
-        }
-        const minutes = minutesFromMidnight % 60;
-        return `${hours}:${minutes == 0 ? '00' : minutes} ${post}`;
-    };
-
     render() {
         return (
             <View style={styles.infoLine}>
                 <FontAwesome>{Icons.clockO}</FontAwesome>
                 <Text style={styles.infoText}>
-                    {this.formatTime(this.props.startTime)}
+                    {formatTime(this.props.startTime)}
                     {' - '}
-                    {this.formatTime(this.props.endTime)}
+                    {formatTime(this.props.endTime)}
                 </Text>
             </View>
         );

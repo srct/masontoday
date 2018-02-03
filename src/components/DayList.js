@@ -3,6 +3,8 @@ import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHi
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import EventList from './EventList';
 
+// master list, cells have the date and an event list
+
 class DayCellTitle extends Component {
     render() {
         return (
@@ -18,17 +20,6 @@ class DayCellTitle extends Component {
     }
 }
 
-class DayCell extends Component {
-    render() {
-        return (
-            <View style={styles.day}>
-                <DayCellTitle date={this.props.date} />
-                <EventList data={this.props.events} />
-            </View>
-        );
-    }
-}
-
 export default class DayList extends Component {
     constructor(props) {
         super(props);
@@ -36,10 +27,10 @@ export default class DayList extends Component {
 
     _renderItem = ({ item }) => {
         return (
-            <DayCell
-                date={{ dayofmonth: item.dayofmonth, dayofweek: item.dayofweek, month: item.month }}
-                events={item.events}
-            />
+            <View style={styles.day}>
+                <DayCellTitle date={{ dayofmonth: item.dayofmonth, dayofweek: item.dayofweek, month: item.month }} />
+                <EventList data={item.events} />
+            </View>
         );
     };
 
@@ -51,7 +42,6 @@ export default class DayList extends Component {
                 </View>
             );
         }
-
         return <FlatList style={styles.list} data={this.props.days} renderItem={this._renderItem} />;
     }
 }
@@ -63,7 +53,6 @@ const styles = StyleSheet.create({
     // },
     day: {
         flex: 1,
-
         // flexDirection: 'row',
         margin: 8,
         marginTop: 0,
