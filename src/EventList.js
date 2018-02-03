@@ -13,22 +13,22 @@ class EventListItem extends Component {
     };
     render() {
         return (
-            <View style={styles.facility} onPress={this.onPress} underlayColor="grey">
+            <TouchableHighlight style={styles.facility} onPress={this.onPress} underlayColor="grey">
                 <View>
                     <Text style={styles.facilityName}>{this.props.listitem.title}</Text>
                     <View style={styles.infoLine}>
                         <FontAwesome>{Icons.locationArrow}</FontAwesome>
                         <Text style={styles.infoText}>{this.props.listitem.location}</Text>
                     </View>
-                    <View style={styles.infoLine}>
+                    {/* <View style={styles.infoLine}>
                         <FontAwesome>{Icons.clockO}</FontAwesome>
                         <Text style={styles.infoText}>
                             {this.props.listitem.dayofweek}, {this.props.listitem.month}{' '}
                             {this.props.listitem.dayofmonth}
                         </Text>
-                    </View>
+                    </View> */}
                 </View>
-            </View>
+            </TouchableHighlight>
         );
     }
 }
@@ -56,12 +56,13 @@ export default class EventList extends Component {
 }
 const styles = StyleSheet.create({
     list: {
-        marginTop: 0,
+        margin: 0,
     },
     facility: {
         margin: 8,
         marginTop: 0,
         marginBottom: 10,
+        marginRight: 20, //not working??
         padding: 12,
         paddingLeft: 8,
         // height: 70,
@@ -70,9 +71,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         shadowColor: 'black',
-        shadowOpacity: 0.6,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 1,
+        shadowOpacity: 0.3,
+        shadowOffset: { width: 0, height: 0 },
+        shadowRadius: 2,
     },
     facilityName: {
         marginLeft: 4,
