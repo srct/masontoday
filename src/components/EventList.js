@@ -1,55 +1,32 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHighlight } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
-import { formatTime } from '../data';
+import { formatTime, formatDescription } from '../data';
 
 // the list of events (the cells you see)
 
-class TimeInfo extends Component {
+/**
+ * An EventInfo component consists of an Icon and text.
+ */
+class EventInfo extends Component {
     render() {
         return (
-            <View style={styles.infoLine}>
-                <FontAwesome>{Icons.clockO}</FontAwesome>
-                <Text style={styles.infoText}>
-                    {formatTime(this.props.startTime)}
-                    {' - '}
-                    {formatTime(this.props.endTime)}
-                </Text>
+            <View style={this.props.style ? this.props.style : styles.infoLine}>
+                <FontAwesome>{this.props.icon}</FontAwesome>
+                <Text style={styles.infoText}>{this.props.text}</Text>
             </View>
         );
     }
 }
 
-class LocationInfo extends Component {
-    render() {
-        return (
-            <View style={styles.infoLine}>
-                <FontAwesome>{Icons.locationArrow}</FontAwesome>
-                <Text style={styles.infoText}>{this.props.location}</Text>
-            </View>
-        );
-    }
-}
-
-class DescriptionInfo extends Component {
-    formatDescription = desc => {
-        const maxLength = 120;
-        let shortened = desc.substring(0, maxLength);
-        if (desc.length >= maxLength) shortened += '...';
-        return shortened;
-    };
-
-    render() {
-        if (this.props.description === 'Not not provided') return <View />;
-        return (
-            <View style={styles.description}>
-                <FontAwesome>{Icons.infoCircle}</FontAwesome>
-                <Text style={styles.infoText}>{this.formatDescription(this.props.description)}</Text>
-            </View>
-        );
-    }
-}
-
+/**
+ * An EventListItem represents one event in the event list.
+ * One cell contains the following:
+ *  - Title
+ *  - Location
+ *  - Time
+ *  - Description
+ */
 class EventListItem extends Component {
     onPress = () => {
         //TODO: navigation to a details page
@@ -58,20 +35,33 @@ class EventListItem extends Component {
         //placeholder
         console.log('click');
     };
+
     render() {
         return (
             <TouchableHighlight style={styles.facility} onPress={this.onPress} underlayColor="grey">
                 <View>
                     <Text style={styles.facilityName}>{this.props.listitem.title}</Text>
-                    <LocationInfo location={this.props.listitem.location} />
-                    <TimeInfo startTime={this.props.listitem.timestart} endTime={this.props.listitem.timestop} />
-                    <DescriptionInfo style={{ marginTop: 16 }} description={this.props.listitem.description} />
+                    <EventInfo icon={Icons.locationArrow} text={this.props.listitem.location} />
+                    <EventInfo
+                        icon={Icons.clockO}
+                        text={
+                            formatTime(this.props.listitem.timestart) + ' - ' + formatTime(this.props.listitem.timestop)
+                        }
+                    />
+                    <EventInfo
+                        style={styles.description}
+                        icon={Icons.infoCircle}
+                        text={formatDescription(this.props.listitem.description)}
+                    />
                 </View>
             </TouchableHighlight>
         );
     }
 }
 
+/**
+ * An EventList contains a list of events.
+ */
 export default class EventList extends Component {
     constructor(props) {
         super(props);

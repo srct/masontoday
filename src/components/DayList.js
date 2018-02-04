@@ -5,6 +5,10 @@ import EventList from './EventList';
 
 // master list, cells have the date and an event list
 
+/**
+ * A DayCellTitle is the date above the EventList.
+ * (a seperate component because it's pretty ugly to center the text vertically + horizontally)
+ */
 class DayCellTitle extends Component {
     render() {
         return (
@@ -20,6 +24,10 @@ class DayCellTitle extends Component {
     }
 }
 
+/**
+ * A DayList is a list of days which each contain a date (e.g. Febuary 4th)
+ * and a list of events that occur on that date.
+ */
 export default class DayList extends Component {
     constructor(props) {
         super(props);
