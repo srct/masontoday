@@ -3,6 +3,8 @@ import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { fetchData, filterDataIntoDays } from './data';
 import EventList from './components/EventList';
 import DayList from './components/DayList';
+import Navigation from 'react-native-navigation';
+
 
 export default class App extends Component {
     constructor(props) {
@@ -36,4 +38,13 @@ const styles = StyleSheet.create({
         flex: 1,
         // margin: 16,
     },
+});
+
+Navigation.registerComponent(`navigation.app`, () => App);
+Navigation.events().onAppLaunched(() => {
+    Navigation.setRoot({
+        component: {
+            name: 'navigation.app'
+        }
+    });
 });
