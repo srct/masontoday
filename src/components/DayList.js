@@ -41,6 +41,7 @@ export default class DayList extends Component {
             </View>
         );
     };
+    _keyExtractor = (item, index) => index;
 
     render() {
         if (!this.props.days) {
@@ -50,7 +51,14 @@ export default class DayList extends Component {
                 </View>
             );
         }
-        return <FlatList style={styles.list} data={this.props.days} renderItem={this._renderItem} />;
+        return (
+            <FlatList
+                style={styles.list}
+                data={this.props.days}
+                renderItem={this._renderItem}
+                keyExtractor={this._keyExtractor}
+            />
+        );
     }
 }
 
