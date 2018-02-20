@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHighlight } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { formatTime, formatDescription } from '../data';
+import { Navigation } from 'react-native-navigation';
 
 // the list of events (the cells you see)
 
@@ -29,18 +30,28 @@ class EventInfo extends Component {
  */
 class EventListItem extends Component {
     onPress = () => {
-        //TODO: navigation to a details page
-        //TODO: pass in listitem as prop to details
-
-        //placeholder
-        console.log('click');
+        let componentId = this.props.componentId;
+        let item = this.props.item;
+        Navigation.push(componentId, {
+            component: {
+                name: 'navigation.masontoday.details',
+                passProps: {
+                    item: item,
+                },
+                options: {
+                    topBar: {
+                        hidden: false,
+                    },
+                },
+            },
+        });
     };
 
     render() {
         return (
-            <TouchableHighlight style={styles.facility} onPress={this.onPress} underlayColor="grey">
+            <TouchableHighlight style={styles.event} onPress={this.onPress} underlayColor="grey">
                 <View>
-                    <Text style={styles.facilityName}>{this.props.listitem.title}</Text>
+                    <Text style={styles.eventName}>{this.props.listitem.title}</Text>
                     <EventInfo icon={Icons.locationArrow} text={this.props.listitem.location} />
                     <EventInfo
                         icon={Icons.clockO}
@@ -68,7 +79,7 @@ export default class EventList extends Component {
     }
 
     _renderItem = ({ item }) => {
-        return <EventListItem listitem={item} />;
+        return <EventListItem componentId={this.props.componentId} listitem={item} />;
     };
 
     render() {
@@ -88,7 +99,7 @@ const styles = StyleSheet.create({
     list: {
         margin: 0,
     },
-    facility: {
+    event: {
         marginBottom: 10,
         padding: 12,
         // paddingLeft: 8,
@@ -102,7 +113,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 2,
     },
-    facilityName: {
+    eventName: {
         marginLeft: 4,
         marginBottom: 4,
         fontSize: 22,

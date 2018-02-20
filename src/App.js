@@ -1,11 +1,16 @@
-const { Navigation } = require('react-native-navigation');
-const { registerScreens } = require('./screens');
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from './screens/index';
 
-function start() {
+export function start() {
     registerScreens();
     Navigation.events().onAppLaunched(() => {
         Navigation.setRoot({
             stack: {
+                options: {
+                    topBar: {
+                        hidden: true,
+                    },
+                },
                 children: [
                     {
                         component: {
@@ -17,5 +22,3 @@ function start() {
         });
     });
 }
-
-module.exports = { start };

@@ -37,7 +37,7 @@ export default class DayList extends Component {
         return (
             <View style={styles.day}>
                 <DayCellTitle date={{ dayofmonth: item.dayofmonth, dayofweek: item.dayofweek, month: item.month }} />
-                <EventList data={item.events} />
+                <EventList componentId={this.props.componentId} data={item.events} />
             </View>
         );
     };

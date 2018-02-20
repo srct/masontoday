@@ -5,7 +5,7 @@ import EventList from '../components/EventList';
 import DayList from '../components/DayList';
 import { Navigation } from 'react-native-navigation';
 
-class App extends Component {
+export class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,12 +26,11 @@ class App extends Component {
     render() {
         return (
             <SafeAreaView style={styles.listView}>
-                <DayList style={styles.listView} days={this.state.days} />
+                <DayList componentId={this.props.componentId} style={styles.listView} days={this.state.days} />
             </SafeAreaView>
         );
     }
 }
-module.exports = App;
 
 const styles = StyleSheet.create({
     listView: {

@@ -1,9 +1,8 @@
-const { Navigation } = require('react-native-navigation');
-const App = require('./App');
-function registerScreens() {
-    Navigation.registerComponent('navigation.masontoday.homescreen', () => App);
-}
+import { Navigation } from 'react-native-navigation';
+import { App } from './App';
+import { Details } from './Details';
 
-module.exports = {
-    registerScreens,
-};
+export function registerScreens() {
+    Navigation.registerComponent('navigation.masontoday.homescreen', () => App);
+    Navigation.registerComponent('navigation.masontoday.details', () => Details);
+}

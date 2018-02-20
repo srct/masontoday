@@ -1,9 +1,2 @@
-// import { AppRegistry } from 'react-native';
-// import App from './src/App';
-
-// AppRegistry.registerComponent('masontoday', () => App);
-// //
-
-const { start } = require('./src/App');
-
+import { start } from './src/App';
 start();
