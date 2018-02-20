@@ -71,6 +71,8 @@ export default class EventList extends Component {
         return <EventListItem listitem={item} />;
     };
 
+    _keyExtractor = (item, index) => item.id;
+
     render() {
         // Adding a loading screen while app gets data
         if (!this.props.data) {
@@ -80,7 +82,14 @@ export default class EventList extends Component {
                 </View>
             );
         }
-        return <FlatList style={styles.list} data={this.props.data} renderItem={this._renderItem} />;
+        return (
+            <FlatList
+                style={styles.list}
+                data={this.props.data}
+                renderItem={this._renderItem}
+                keyExtractor={this._keyExtractor}
+            />
+        );
     }
 }
 const styles = StyleSheet.create({
