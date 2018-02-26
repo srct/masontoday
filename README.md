@@ -6,7 +6,7 @@
 
 ## Getting Ready
 
-* Please Follow `Building Projects With Native Code` in [this guide](https://facebook.github.io/react-native/docs/getting-started.html) for installing and setting up node, npm, and everything you need to have installed before getting started.
+* Please follow `Building Projects With Native Code` in [this guide](https://facebook.github.io/react-native/docs/getting-started.html) for installing and setting up node, npm, and everything you need to have installed before getting started.
 
 * We use yarn in this project to standardize dependencies.
   Yarn can be installed [here](https://yarnpkg.com/en/docs/install)
@@ -19,13 +19,13 @@ Once you clone the repository, use `yarn install` to install all dependencies in
 
 ### iOS
 
-> Note: IOS can only be run on the macOS operating system
+> Note: iOS can only be run on the macOS operating system
 
 > Note: Xcode must be installed
 
 * `yarn run ios`
 
-This command will start the build, open a ios simulator, and start the react packager.
+This command will start the build, open a iOS simulator, and start the react packager.
 
 After this command starts up the app any changes made locally can be shown by using `cmd r` to refresh the app.
 
@@ -38,3 +38,8 @@ Thankfully react native provides a very elaborate description of how to set that
 * `yarn run android`
 
 This command will start the build, and connect to the adb debugger.
+
+## Contributing
+
+If you would like to contribute to Mason Today, please join the [#masontoday-mobile channel](https://srct.slack.com/messages/masontoday-mobile/details/) 
+in SRCT's [Slack Group](https://srct.slack.com) and say hi. This is where most discussion about the project takes place.
