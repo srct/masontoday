@@ -31,16 +31,17 @@ class EventInfo extends Component {
 class EventListItem extends Component {
     onPress = () => {
         let componentId = this.props.componentId;
-        let item = this.props.item;
+        let event = this.props.listitem;
         Navigation.push(componentId, {
             component: {
                 name: 'navigation.masontoday.details',
                 passProps: {
-                    item: item,
+                    event,
                 },
                 options: {
                     topBar: {
                         hidden: false,
+                        transparent: true,
                     },
                 },
             },
