@@ -6,10 +6,26 @@
 
 ## Getting Ready
 
-* Please Follow `Building Projects With Native Code` in [this guide](https://facebook.github.io/react-native/docs/getting-started.html) for installing and setting up node, npm, and everything you need to have installed before getting started.
+*   Please Follow `Building Projects With Native Code` in [this guide](https://facebook.github.io/react-native/docs/getting-started.html) for installing and setting up node, npm, and everything you need to have installed before getting started.
 
-* We use yarn in this project to standardize dependencies.
-  Yarn can be installed [here](https://yarnpkg.com/en/docs/install)
+*   We use yarn in this project to standardize dependencies.
+    Yarn can be installed [here](https://yarnpkg.com/en/docs/install)
+
+Note:
+
+Because of a known bug in react-native-navigation v2 the package requires you to complete its build
+
+If you don't have typescript installed run
+
+`npm install -g typescript`
+
+then to build
+
+`cd /node_modules/react-native-navigation`
+
+`tsc`
+
+And you're done!
 
 ## Setup
 
@@ -23,7 +39,7 @@ Once you clone the repository, use `yarn install` to install all dependencies in
 
 > Note: Xcode must be installed
 
-* `yarn run ios`
+*   `yarn run ios`
 
 This command will start the build, open a ios simulator, and start the react packager.
 
@@ -35,6 +51,6 @@ This is a bit more complicated than iOS as the command does not automatically br
 
 Thankfully react native provides a very elaborate description of how to set that up [here](https://facebook.github.io/react-native/docs/getting-started.html) under `Building Projects with Native Code`
 
-* `yarn run android`
+*   `yarn run android`
 
 This command will start the build, and connect to the adb debugger.
