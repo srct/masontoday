@@ -1,39 +1,24 @@
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import { fetchData, filterDataIntoDays } from './data';
-import EventList from './components/EventList';
-import DayList from './components/DayList';
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from './screens/index';
 
-export default class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            days: null,
-        };
-    }
-
-    componentWillMount() {
-        //getting new data from server
-        fetchData().then(data => {
-            if (!data) return;
-            this.setState({
-                days: filterDataIntoDays(data),
-            });
+export function start() {
+    registerScreens();
+    Navigation.events().onAppLaunched(() => {
+        Navigation.setRoot({
+            stack: {
+                options: {
+                    topBar: {
+                        hidden: true,
+                    },
+                },
+                children: [
+                    {
+                        component: {
+                            name: 'navigation.masontoday.homescreen',
+                        },
+                    },
+                ],
+            },
         });
-    }
-
-    render() {
-        return (
-            <SafeAreaView style={styles.listView}>
-                <DayList style={styles.listView} days={this.state.days} />
-            </SafeAreaView>
-        );
-    }
+    });
 }
-
-const styles = StyleSheet.create({
-    listView: {
-        flex: 1,
-        // margin: 16,
-    },
-});
