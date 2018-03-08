@@ -14,7 +14,6 @@ function TimeDate(props) {
 }
 export class Details extends Component {
     render() {
-        console.warn(this.props);
         return (
             <SafeAreaView style={styles.container}>
                 <View>
