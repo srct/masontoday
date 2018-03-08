@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHighlight } from 'react-native';
-import FontAwesome, { Icons } from 'react-native-fontawesome';
 import EventList from './EventList';
 
 // master list, cells have the date and an event list
