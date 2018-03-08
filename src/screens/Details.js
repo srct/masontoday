@@ -20,7 +20,7 @@ function BackButton(props) {
         Navigation.pop(props.componentId);
     };
     return (
-        <TouchableHighlight onPress={onPress}>
+        <TouchableHighlight onPress={onPress} underlayColor={null}>
             <FontAwesome style={{ fontSize: 25, paddingTop: 10 }}>{Icons.chevronLeft}</FontAwesome>
         </TouchableHighlight>
     );
