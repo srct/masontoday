@@ -17,21 +17,41 @@ export async function fetchData() {
  * @param {*} data
  */
 export function filterDataIntoDays(data) {
-    let days = [];
+    // the data we receive from the API are split up into events.
+    // we want to split the data into days, so we need to search
+    // through all the events to find each unique day.
+
+    let days = []; // the list of unique days
+
+    // loop through each event
     data.forEach(event => {
+        // check to see if we already added a day with the date of this event
         const daysAlreadyWithDate = days.filter(day => {
-            return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
+            const dayOfWeeksAreSame = event.dayofweek == day.dayofweek;
+            const dayOfMonthsAreSame = event.dayofmonth == day.dayofmonth;
+            // a date is the same if its day of the week and day of the month are the same
+            return daysOfWeeksAreSame && daysOfMonthsAreSame;
         });
-        // add the day to the days if it's not already there
+        // if a date equal to this event's date has not already been added,
+        // add this event's day
         if (daysAlreadyWithDate.length === 0) {
             days.push({ dayofweek: event.dayofweek, dayofmonth: event.dayofmonth });
         }
     });
+
+    // now that we have a list of unique days, we want to add
+    // all the events that occur on each day to their respective day.
+    // so, loop through each day
     days.forEach(day => {
+        // add all the events that occur on this day to this day object
         day.events = data.filter(event => {
-            return event.dayofweek == day.dayofweek && event.dayofmonth == day.dayofmonth;
+            const dayOfWeeksAreSame = event.dayofweek == day.dayofweek;
+            const dayOfMonthsAreSame = event.dayofmonth == day.dayofmonth;
+            // a date is the same if its day of the week and day of the month are the same
+            return daysOfWeeksAreSame && daysOfMonthsAreSame;
         });
     });
+    // return the unique list of days
     return days;
 }
 
