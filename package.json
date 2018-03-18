@@ -9,8 +9,8 @@
         "android": "react-native run-android"
     },
     "dependencies": {
-        "react": "16.2.0",
-        "react-native": "0.52.2",
+        "react": "^16.3.0-alpha.1",
+        "react-native": "0.54.2",
         "react-native-fontawesome": "^5.7.0",
         "react-native-navigation": "^2.0.2121"
     },
@@ -22,6 +22,8 @@
     },
     "jest": {
         "preset": "react-native",
-        "setupFiles": ["./setup.js"]
+        "setupFiles": [
+            "./setup.js"
+        ]
     }
 }
