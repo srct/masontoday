@@ -8,7 +8,7 @@ export function start() {
             stack: {
                 options: {
                     topBar: {
-                        hidden: true,
+                        visible: false,
                     },
                 },
                 children: [

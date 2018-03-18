@@ -26,8 +26,8 @@ export function filterDataIntoDays(data) {
     data.forEach(event => {
         // check to see if we already added a day with the date of this event
         const daysAlreadyWithDate = days.filter(day => {
-            const dayOfWeeksAreSame = event.dayofweek == day.dayofweek;
-            const dayOfMonthsAreSame = event.dayofmonth == day.dayofmonth;
+            const daysOfWeeksAreSame = event.dayofweek == day.dayofweek;
+            const daysOfMonthsAreSame = event.dayofmonth == day.dayofmonth;
             // a date is the same if its day of the week and day of the month are the same
             return daysOfWeeksAreSame && daysOfMonthsAreSame;
         });
@@ -44,8 +44,8 @@ export function filterDataIntoDays(data) {
     days.forEach(day => {
         // add all the events that occur on this day to this day object
         day.events = data.filter(event => {
-            const dayOfWeeksAreSame = event.dayofweek == day.dayofweek;
-            const dayOfMonthsAreSame = event.dayofmonth == day.dayofmonth;
+            const daysOfWeeksAreSame = event.dayofweek == day.dayofweek;
+            const daysOfMonthsAreSame = event.dayofmonth == day.dayofmonth;
             // a date is the same if its day of the week and day of the month are the same
             return daysOfWeeksAreSame && daysOfMonthsAreSame;
         });
