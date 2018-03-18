@@ -3,7 +3,7 @@
  */
 export async function fetchData() {
     try {
-        let response = await fetch('http://34.234.214.232');
+        let response = await fetch('https://masontoday.gmu.io');
         let responseJson = response.json();
         return responseJson;
     } catch (error) {
