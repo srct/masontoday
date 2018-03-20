@@ -14,9 +14,9 @@ export class App extends Component {
         //getting new data from server
         fetchData().then(data => {
             if (!data) return;
-            this.state = {
+            this.setState({
                 days: filterDataIntoDays(data),
-            };
+            });
         });
     }
 
