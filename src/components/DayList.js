@@ -40,7 +40,7 @@ export default class DayList extends Component {
             </View>
         );
     };
-    _keyExtractor = (item, index) => index;
+    _keyExtractor = (item, index) => index.toString();
 
     render() {
         if (!this.props.days) {

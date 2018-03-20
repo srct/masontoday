@@ -83,7 +83,7 @@ export default class EventList extends Component {
         return <EventListItem componentId={this.props.componentId} listitem={item} />;
     };
 
-    _keyExtractor = (item, index) => item.id;
+    _keyExtractor = (item, index) => item.id.toString();
 
     render() {
         // Adding a loading screen while app gets data
