@@ -11,15 +11,12 @@ export class App extends Component {
         this.state = {
             days: null,
         };
-    }
-
-    componentWillMount() {
         //getting new data from server
         fetchData().then(data => {
             if (!data) return;
-            this.setState({
+            this.state = {
                 days: filterDataIntoDays(data),
-            });
+            };
         });
     }
 
