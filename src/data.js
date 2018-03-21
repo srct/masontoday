@@ -24,6 +24,7 @@ export function filterDataIntoDays(data) {
 
     // loop through each event
     data.forEach(event => {
+        if (event.error) return;
         // check to see if we already added a day with the date of this event
         const daysAlreadyWithDate = days.filter(day => {
             const daysOfWeeksAreSame = event.dayofweek == day.dayofweek;
