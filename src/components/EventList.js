@@ -40,8 +40,8 @@ class EventListItem extends Component {
                 },
                 options: {
                     topBar: {
-                        hidden: true,
-                        transparent: true,
+                        visible: false,
+                        // animate: true,
                     },
                 },
             },
