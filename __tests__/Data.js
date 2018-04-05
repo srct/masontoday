@@ -3,9 +3,6 @@ import { payload } from '../sampleData';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-it('Fetches Data', () => {
-    expect(fetchData()).toBeDefined();
-});
 it('Filters Data Into Days', () => {
     expect(filterDataIntoDays(payload)).toEqual([
         {
