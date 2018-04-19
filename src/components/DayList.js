@@ -30,6 +30,12 @@ export class DayList extends Component {
         super(props);
     }
 
+    _renderItem = ({ item, index, section }) => <EventListItem listitem={item} componentId={this.props.componentId} />;
+
+    _renderSectionHeader = ({ section: { dayofmonth, dayofweek, month } }) => (
+        <DayCellTitle date={{ dayofmonth, dayofweek, month }} />
+    );
+
     render() {
         if (!this.props.days) {
             return (
@@ -38,16 +44,12 @@ export class DayList extends Component {
                 </View>
             );
         }
-
         return (
             <SectionList
+                showsVerticalScrollIndicator={false}
                 style={styles.day}
-                renderItem={({ item, index, section }) => (
-                    <EventListItem listitem={item} componentId={this.props.componentId} />
-                )}
-                renderSectionHeader={({ section: { dayofmonth, dayofweek, month } }) => (
-                    <DayCellTitle date={{ dayofmonth, dayofweek, month }} />
-                )}
+                renderItem={this._renderItem}
+                renderSectionHeader={this._renderSectionHeader}
                 sections={this.props.days}
                 keyExtractor={(item, index) => item + index}
             />
