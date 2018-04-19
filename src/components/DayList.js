@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHighlight } from 'react-native';
-import EventList from './EventList';
+import { Platform, StyleSheet, Text, View, FlatList, SectionList, TouchableHighlight } from 'react-native';
+import { EventList, EventListItem } from './EventList';
 
 // master list, cells have the date and an event list
 
@@ -32,15 +32,15 @@ export default class DayList extends Component {
         super(props);
     }
 
-    _renderItem = ({ item }) => {
-        return (
-            <View style={styles.day}>
-                <DayCellTitle date={{ dayofmonth: item.dayofmonth, dayofweek: item.dayofweek, month: item.month }} />
-                <EventList componentId={this.props.componentId} data={item.events} />
-            </View>
-        );
-    };
-    _keyExtractor = (item, index) => index.toString();
+    // _renderItem = ({ item }) => {
+    //     return (
+    //         <View style={styles.day}>
+    //             <DayCellTitle date={{ dayofmonth: item.dayofmonth, dayofweek: item.dayofweek, month: item.month }} />
+    //             <EventList componentId={this.props.componentId} data={item.events} />
+    //         </View>
+    //     );
+    // };
+    // _keyExtractor = (item, index) => index.toString();
 
     render() {
         if (!this.props.days) {
@@ -50,12 +50,18 @@ export default class DayList extends Component {
                 </View>
             );
         }
+        // console.warn(this.props.days);
         return (
-            <FlatList
-                style={styles.list}
-                data={this.props.days}
-                renderItem={this._renderItem}
-                keyExtractor={this._keyExtractor}
+            <SectionList
+                style={styles.day}
+                renderItem={({ item, index, section }) => (
+                    <EventListItem listitem={item} componentId={this.props.componentId} />
+                )}
+                renderSectionHeader={({ section: { dayofmonth, dayofweek, month } }) => (
+                    <DayCellTitle date={{ dayofmonth, dayofweek, month }} />
+                )}
+                sections={this.props.days}
+                keyExtractor={(item, index) => item + index}
             />
         );
     }
