@@ -72,44 +72,7 @@ export class EventListItem extends Component {
     }
 }
 
-// /**
-//  * An EventList contains a list of events.
-//  */
-// export class EventList extends Component {
-//     constructor(props) {
-//         super(props);
-//     }
-
-//     _renderItem = ({ item }) => {
-//         return <EventListItem componentId={this.props.componentId} listitem={item} />;
-//     };
-
-//     _keyExtractor = (item, index) => item.id.toString();
-
-//     render() {
-//         // Adding a loading screen while app gets data
-//         if (!this.props.data) {
-//             return (
-//                 <View style={styles.loading}>
-//                     <Text>Loading data...</Text>
-//                 </View>
-//             );
-//         }
-//         return (
-//             <FlatList
-//                 style={styles.list}
-//                 data={this.props.data}
-//                 renderItem={this._renderItem}
-//                 keyExtractor={this._keyExtractor}
-//             />
-//         );
-//     }
-// }
 const styles = StyleSheet.create({
-    loading: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-    list: {
-        margin: 0,
-    },
     event: {
         marginBottom: 10,
         padding: 12,
