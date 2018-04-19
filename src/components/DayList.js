@@ -46,7 +46,9 @@ export class DayList extends Component {
         }
         return (
             <SectionList
+                initialNumToRender={5}
                 showsVerticalScrollIndicator={false}
+                stickySectionHeadersEnabled={false}
                 style={styles.day}
                 renderItem={this._renderItem}
                 renderSectionHeader={this._renderSectionHeader}
