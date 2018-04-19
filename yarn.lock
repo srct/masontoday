@@ -3891,13 +3891,17 @@ react-devtools-core@3.1.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-lifecycles-compat@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-2.0.0.tgz#71d9c4cde47114c4102454f76da055c2bc48c948"
+
 react-native-fontawesome@^5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/react-native-fontawesome/-/react-native-fontawesome-5.7.0.tgz#7bfe57c21c6522d05eaf206474903c3f299bfc0d"
 
-react-native-navigation@^2.0.2227:
-  version "2.0.2227"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2227.tgz#240e7b1709fcf026fb54a9d4a0680f293b3c25fa"
+react-native-navigation@^2.0.2241:
+  version "2.0.2241"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2241.tgz#24a61e182991010c9fa0294f9b7cba0208f3d7f1"
   dependencies:
     "@types/jest" "22.x.x"
     "@types/lodash" "4.x.x"
@@ -3907,6 +3911,7 @@ react-native-navigation@^2.0.2227:
     "@types/react-test-renderer" "16.x.x"
     lodash "4.x.x"
     prop-types "15.x.x"
+    react-lifecycles-compat "2.0.0"
 
 react-native@0.54.2:
   version "0.54.2"
