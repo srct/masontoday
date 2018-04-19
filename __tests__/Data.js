@@ -6,9 +6,7 @@ import renderer from 'react-test-renderer';
 it('Filters Data Into Days', () => {
     expect(filterDataIntoDays(payload)).toEqual([
         {
-            dayofmonth: '28',
-            dayofweek: 'Tuesday',
-            events: [
+            data: [
                 {
                     dayofmonth: '28',
                     dayofweek: 'Tuesday',
@@ -34,6 +32,9 @@ it('Filters Data Into Days', () => {
                     year: '2018',
                 },
             ],
+            dayofmonth: '28',
+            dayofweek: 'Tuesday',
+            month: 'March',
         },
     ]);
 });
