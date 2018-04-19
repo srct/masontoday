@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { Platform, StyleSheet, Text, View, SafeAreaView, AsyncStorage } from 'react-native';
 import { fetchData, filterDataIntoDays } from '../data';
 import EventList from '../components/EventList';
 import DayList from '../components/DayList';
@@ -11,12 +11,24 @@ export class App extends Component {
         this.state = {
             days: null,
         };
+    }
+    componentDidMount() {
+        //getting data stored on phone
+        AsyncStorage.getItem('@Masontoday:data').then(value => {
+            if (value == null) return;
+            this.setState({
+                days: JSON.parse(value),
+            });
+        });
+
         //getting new data from server
         fetchData().then(data => {
             if (!data) return;
+            let parsedData = filterDataIntoDays(data);
             this.setState({
-                days: filterDataIntoDays(data),
+                days: parsedData,
             });
+            AsyncStorage.setItem('@Masontoday:data', JSON.stringify(parsedData));
         });
     }
 
