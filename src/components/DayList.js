@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHighlight } from 'react-native';
-import EventList from './EventList';
-
-// master list, cells have the date and an event list
+import { Platform, StyleSheet, Text, View, FlatList, SectionList, TouchableHighlight } from 'react-native';
+import { EventList, EventListItem } from './EventList';
 
 /**
  * A DayCellTitle is the date above the EventList.
@@ -27,20 +25,16 @@ class DayCellTitle extends Component {
  * A DayList is a list of days which each contain a date (e.g. Febuary 4th)
  * and a list of events that occur on that date.
  */
-export default class DayList extends Component {
+export class DayList extends Component {
     constructor(props) {
         super(props);
     }
 
-    _renderItem = ({ item }) => {
-        return (
-            <View style={styles.day}>
-                <DayCellTitle date={{ dayofmonth: item.dayofmonth, dayofweek: item.dayofweek, month: item.month }} />
-                <EventList componentId={this.props.componentId} data={item.events} />
-            </View>
-        );
-    };
-    _keyExtractor = (item, index) => index.toString();
+    _renderItem = ({ item, index, section }) => <EventListItem listitem={item} componentId={this.props.componentId} />;
+
+    _renderSectionHeader = ({ section: { dayofmonth, dayofweek, month } }) => (
+        <DayCellTitle date={{ dayofmonth, dayofweek, month }} />
+    );
 
     render() {
         if (!this.props.days) {
@@ -51,21 +45,21 @@ export default class DayList extends Component {
             );
         }
         return (
-            <FlatList
-                style={styles.list}
-                data={this.props.days}
+            <SectionList
+                initialNumToRender={5}
+                showsVerticalScrollIndicator={false}
+                stickySectionHeadersEnabled={false}
+                style={styles.day}
                 renderItem={this._renderItem}
-                keyExtractor={this._keyExtractor}
+                renderSectionHeader={this._renderSectionHeader}
+                sections={this.props.days}
+                keyExtractor={(item, index) => item + index}
             />
         );
     }
 }
 
 const styles = StyleSheet.create({
-    // list: {
-    //     flex: 1,
-    //     // margin: 10,
-    // },
     day: {
         flex: 1,
         // flexDirection: 'row',
@@ -77,12 +71,6 @@ const styles = StyleSheet.create({
         // height: 70,
         // overflow: 'hidden',
         borderRadius: 10,
-    },
-    date: {
-        flex: 1,
-        alignItems: 'center',
-        flexDirection: 'row',
-        marginBottom: 8,
     },
     dayofmonth: {
         fontSize: 24,
