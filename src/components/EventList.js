@@ -38,13 +38,6 @@ export class EventListItem extends Component {
                 passProps: {
                     event,
                 },
-                options: {
-                    topBar: {
-                        visible: false,
-                        // animate: true,
-                        drawBehind: true,
-                    },
-                },
             },
         });
     };

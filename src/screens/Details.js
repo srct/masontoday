@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableHighlight } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { Navigation } from 'react-native-navigation';
+import { formatTime } from '../data';
 
 function TimeDate(props) {
-    let dayOfMonth = props.event.dayofmonth;
-    let dayOfWeek = props.event.dayofweek;
-    let month = props.event.month;
-    let year = props.event.year;
+    let event = props.event;
     return (
-        <Text style={props.style}>
-            {dayOfWeek} {dayOfMonth} / {month} / {year}
-        </Text>
+        <View>
+            <Text style={props.style}>
+                {event.dayofweek} {event.dayofmonth} / {event.month} / {event.year}
+            </Text>
+            <Text style={props.style}>
+                {formatTime(event.timestart)} - {formatTime(event.timestop)}
+            </Text>
+        </View>
     );
 }
 
@@ -25,7 +28,17 @@ function BackButton(props) {
         </TouchableHighlight>
     );
 }
+
 export class Details extends Component {
+    static get options() {
+        return {
+            topBar: {
+                drawBehind: true,
+                visible: false,
+            },
+        };
+    }
+
     render() {
         return (
             <SafeAreaView style={styles.container}>
@@ -52,26 +65,26 @@ export class Details extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F7F7F7',
-        marginLeft: '2%',
+        marginLeft: '2.2%',
     },
     eventTitle: {
-        fontSize: 20,
+        fontSize: 30,
         fontWeight: 'bold',
-        padding: 0,
+        paddingBottom: 5,
         color: '#282828',
     },
     eventLocation: {
         fontSize: 15,
         fontWeight: 'bold',
-        padding: 0,
+        paddingBottom: 3,
     },
     eventTime: {
         fontSize: 15,
         fontWeight: 'bold',
         padding: 0,
+        color: '#242424',
     },
     eventDescription: {
-        fontSize: 15,
+        fontSize: 18,
     },
 });
