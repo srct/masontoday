@@ -3,7 +3,7 @@
  */
 export async function fetchData() {
     try {
-        let response = await fetch('https://masontoday.gmu.io');
+        let response = await fetch('https://masontoday.gmu.io/api/25live');
         let responseJson = response.json();
         return responseJson;
     } catch (error) {
