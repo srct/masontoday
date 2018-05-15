@@ -11,20 +11,6 @@
 *   We use yarn in this project to standardize dependencies.
     Yarn can be installed [here](https://yarnpkg.com/en/docs/install)
 
-Note:
-
-Because of a known bug in react-native-navigation v2 the package requires you to complete its build
-
-If you don't have typescript installed run
-
-`npm install -g typescript`
-
-then to build
-
-`cd /node_modules/react-native-navigation`
-
-`tsc`
-
 And you're done!
 
 ## Setup
@@ -57,5 +43,5 @@ This command will start the build, and connect to the adb debugger.
 
 ## Contributing
 
-If you would like to contribute to Mason Today, please join the [#masontoday-mobile channel](https://srct.slack.com/messages/masontoday-mobile/details/) 
+If you would like to contribute to Mason Today, please join the [#masontoday-mobile channel](https://srct.slack.com/messages/masontoday-mobile/details/)
 in SRCT's [Slack Group](https://srct.slack.com) and say hi. This is where most discussion about the project takes place.
