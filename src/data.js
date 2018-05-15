@@ -45,6 +45,8 @@ export function filterDataIntoDays(data) {
     days.forEach(day => {
         // add all the events that occur on this day to this day object
         day.data = data.filter(event => {
+            if (event.quality == 'none') return;
+
             const daysOfWeeksAreSame = event.dayofweek == day.dayofweek;
             const daysOfMonthsAreSame = event.dayofmonth == day.dayofmonth;
             // a date is the same if its day of the week and day of the month are the same
