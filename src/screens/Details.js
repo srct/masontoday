@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TouchableHighlight, ScrollView } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { Navigation } from 'react-native-navigation';
 import { formatTime } from '../data';
@@ -54,9 +54,11 @@ export class Details extends Component {
                     <TimeDate event={this.props.event} style={styles.eventTime} />
                 </View>
 
-                <View style={{ paddingTop: 10 }}>
-                    <Text style={styles.eventDescription}>{this.props.event.description}</Text>
-                </View>
+                <ScrollView style={{ marginTop: 10 }}>
+                    <View>
+                        <Text style={styles.eventDescription}>{this.props.event.description}</Text>
+                    </View>
+                </ScrollView>
             </SafeAreaView>
         );
     }
@@ -69,9 +71,9 @@ const styles = StyleSheet.create({
     },
     eventTitle: {
         fontSize: 30,
-        fontWeight: 'bold',
         paddingBottom: 5,
-        color: '#282828',
+        fontWeight: 'bold',
+        color: '#006633',
     },
     eventLocation: {
         fontSize: 15,
