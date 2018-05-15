@@ -3,7 +3,7 @@ import { registerScreens } from './screens/index';
 
 export function start() {
     registerScreens();
-    Navigation.events().onAppLaunched(() => {
+    Navigation.events().registerAppLaunchedListener(() => {
         Navigation.setRoot({
             stack: {
                 options: {

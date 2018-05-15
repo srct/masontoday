@@ -3899,9 +3899,9 @@ react-native-fontawesome@^5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/react-native-fontawesome/-/react-native-fontawesome-5.7.0.tgz#7bfe57c21c6522d05eaf206474903c3f299bfc0d"
 
-react-native-navigation@^2.0.2241:
-  version "2.0.2241"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2241.tgz#24a61e182991010c9fa0294f9b7cba0208f3d7f1"
+react-native-navigation@^2.0.2284:
+  version "2.0.2284"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2284.tgz#bdddda173bcdaa2d85393d89d8171fe938fa41ce"
   dependencies:
     "@types/jest" "22.x.x"
     "@types/lodash" "4.x.x"
