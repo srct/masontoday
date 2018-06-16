@@ -61,15 +61,7 @@ export class DayList extends Component {
 
 const styles = StyleSheet.create({
     day: {
-        flex: 1,
-        // flexDirection: 'row',
-        margin: 8,
-        marginTop: 0,
-        marginBottom: 10,
-        padding: 12,
-        paddingLeft: 8,
-        // height: 70,
-        // overflow: 'hidden',
+        marginHorizontal: 8,
         borderRadius: 10,
     },
     dayofmonth: {

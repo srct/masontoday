@@ -7,13 +7,18 @@ import { formatTime } from '../data';
 function TimeDate(props) {
     let event = props.event;
     return (
-        <View>
-            <Text style={props.style}>
-                {event.dayofweek} {event.dayofmonth} / {event.month} / {event.year}
-            </Text>
-            <Text style={props.style}>
-                {formatTime(event.timestart)} - {formatTime(event.timestop)}
-            </Text>
+        <View style={{ flexDirection: 'row' }}>
+            <View style={{ padding: 3, alignItems: 'center' }}>
+                <FontAwesome>{Icons.clockO}</FontAwesome>
+            </View>
+            <View>
+                <Text style={props.style}>
+                    {event.dayofweek} {event.dayofmonth} / {event.month} / {event.year}
+                </Text>
+                <Text style={props.style}>
+                    {formatTime(event.timestart)} - {formatTime(event.timestop)}
+                </Text>
+            </View>
         </View>
     );
 }
@@ -47,9 +52,14 @@ export class Details extends Component {
                 <View>
                     <Text style={styles.eventTitle}>{this.props.event.title}</Text>
 
-                    <Text style={styles.eventLocation}>
-                        {'Location: ' + this.props.event.location[0].toUpperCase()}
-                    </Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <View style={{ padding: 3 }}>
+                            <FontAwesome>{Icons.locationArrow}</FontAwesome>
+                        </View>
+                        <Text style={styles.eventLocation}>
+                            {'Location: ' + this.props.event.location[0].toUpperCase()}
+                        </Text>
+                    </View>
 
                     <TimeDate event={this.props.event} style={styles.eventTime} />
                 </View>
@@ -67,7 +77,7 @@ export class Details extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginLeft: '2.2%',
+        marginHorizontal: 8,
     },
     eventTitle: {
         fontSize: 30,
