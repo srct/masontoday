@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, FlatList, SectionList, TouchableHighlight } from 'react-native';
-import { EventList, EventListItem } from './EventList';
+import { StyleSheet, Text, View, SectionList } from 'react-native';
+import { EventListItem } from './EventList';
 
 /**
  * A DayCellTitle is the date above the EventList.

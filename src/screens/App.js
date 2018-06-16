@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, SafeAreaView, AsyncStorage } from 'react-native';
 import { fetchData, filterDataIntoDays } from '../data';
 import { DayList } from '../components/DayList';
-import { Navigation } from 'react-native-navigation';
 
 export class App extends Component {
     constructor(props) {

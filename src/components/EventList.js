@@ -1,15 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Platform,
-    StyleSheet,
-    Text,
-    View,
-    FlatList,
-    List,
-    ListItem,
-    TouchableHighlight,
-    TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { formatTime, formatDescription } from '../data';
 import { Navigation } from 'react-native-navigation';
