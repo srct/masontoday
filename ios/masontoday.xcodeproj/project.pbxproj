@@ -1262,6 +1262,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zosman.app.masontoday;
 				PRODUCT_NAME = masontoday;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1280,6 +1281,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zosman.app.masontoday;
 				PRODUCT_NAME = masontoday;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
