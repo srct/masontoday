@@ -5,19 +5,21 @@ export function start() {
     registerScreens();
     Navigation.events().registerAppLaunchedListener(() => {
         Navigation.setRoot({
-            stack: {
-                options: {
-                    topBar: {
-                        visible: false,
-                    },
-                },
-                children: [
-                    {
-                        component: {
-                            name: 'navigation.masontoday.homescreen',
+            root: {
+                stack: {
+                    options: {
+                        topBar: {
+                            visible: false,
                         },
                     },
-                ],
+                    children: [
+                        {
+                            component: {
+                                name: 'navigation.masontoday.homescreen',
+                            },
+                        },
+                    ],
+                },
             },
         });
     });
