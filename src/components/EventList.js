@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, FlatList, List, ListItem, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import { formatTime, formatDescription } from '../data';
 import { Navigation } from 'react-native-navigation';
@@ -47,7 +47,7 @@ export class EventListItem extends Component {
             <TouchableHighlight style={styles.event} onPress={this.onPress} underlayColor="grey">
                 <View>
                     <Text style={styles.eventName}>{this.props.listitem.title}</Text>
-                    <EventInfo icon={Icons.locationArrow} text={this.props.listitem.location} />
+                    <EventInfo icon={Icons.locationArrow} text={this.props.listitem.location[0]} />
                     <EventInfo
                         icon={Icons.clockO}
                         text={

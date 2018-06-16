@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, FlatList, SectionList, TouchableHighlight } from 'react-native';
-import { EventList, EventListItem } from './EventList';
+import { StyleSheet, Text, View, SectionList } from 'react-native';
+import { EventListItem } from './EventList';
 
 /**
  * A DayCellTitle is the date above the EventList.
@@ -61,15 +61,7 @@ export class DayList extends Component {
 
 const styles = StyleSheet.create({
     day: {
-        flex: 1,
-        // flexDirection: 'row',
-        margin: 8,
-        marginTop: 0,
-        marginBottom: 10,
-        padding: 12,
-        paddingLeft: 8,
-        // height: 70,
-        // overflow: 'hidden',
+        marginHorizontal: 8,
         borderRadius: 10,
     },
     dayofmonth: {

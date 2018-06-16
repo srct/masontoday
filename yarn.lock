@@ -412,9 +412,9 @@
   version "15.5.2"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.2.tgz#3c6b8dceb2906cc87fe4358e809f9d20c8d59be1"
 
-"@types/react-native@0.51.x":
-  version "0.51.10"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.51.10.tgz#ab060c0b87110a32a2e797ebaef5b485a7856217"
+"@types/react-native@0.51.1":
+  version "0.51.1"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.51.1.tgz#ab47c0d17c68149cbe5233d9f67dc586c61146df"
   dependencies:
     "@types/react" "*"
 
@@ -3899,15 +3899,15 @@ react-native-fontawesome@^5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/react-native-fontawesome/-/react-native-fontawesome-5.7.0.tgz#7bfe57c21c6522d05eaf206474903c3f299bfc0d"
 
-react-native-navigation@^2.0.2284:
-  version "2.0.2284"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2284.tgz#bdddda173bcdaa2d85393d89d8171fe938fa41ce"
+react-native-navigation@^2.0.2354:
+  version "2.0.2354"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2354.tgz#31aeaa500780d6310ad4670b59f02b3793fd30cc"
   dependencies:
     "@types/jest" "22.x.x"
     "@types/lodash" "4.x.x"
     "@types/prop-types" "15.x.x"
     "@types/react" "16.x.x"
-    "@types/react-native" "0.51.x"
+    "@types/react-native" "0.51.1"
     "@types/react-test-renderer" "16.x.x"
     lodash "4.x.x"
     prop-types "15.x.x"
