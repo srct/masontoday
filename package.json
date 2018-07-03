@@ -6,13 +6,16 @@
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "test": "jest",
         "ios": "react-native run-ios",
-        "android": "react-native run-android"
+        "android": "react-native run-android",
+        "snyk-protect": "snyk protect",
+        "prepare": "npm run snyk-protect"
     },
     "dependencies": {
         "react": "^16.3.0-alpha.1",
         "react-native": "0.54.2",
         "react-native-fontawesome": "^5.7.0",
-        "react-native-navigation": "^2.0.2354"
+        "react-native-navigation": "^2.0.2354",
+        "snyk": "^1.88.0"
     },
     "devDependencies": {
         "babel-jest": "23.0.0-alpha.0",
@@ -22,6 +25,9 @@
     },
     "jest": {
         "preset": "react-native",
-        "setupFiles": ["./setup.js"]
-    }
+        "setupFiles": [
+            "./setup.js"
+        ]
+    },
+    "snyk": true
 }
