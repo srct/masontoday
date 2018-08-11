@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, SectionList } from 'react-native';
 
 import { Live25API } from 'masontoday/src/api';
+import { EventCard } from 'masontoday/src/components';
 
 export default class EventList extends React.Component {
     state = {
@@ -21,16 +22,18 @@ export default class EventList extends React.Component {
         }
     }
 
+    _renderEvent = ({ item, index }) => <EventCard key={index} item={item} />;
+
+    _renderSectionHeader = ({ section: { dayofmonth } }) => <Text style={{ fontSize: 40 }}>{dayofmonth}</Text>;
+
     render() {
         return (
             <SafeAreaView>
                 {!!this.state.events && (
                     <SectionList
                         sections={this.state.events}
-                        renderItem={({ item, index, section }) => <Text key={index}>{JSON.stringify(item)}</Text>}
-                        renderSectionHeader={({ section: { dayofmonth } }) => (
-                            <Text style={{ fontSize: 40 }}>{dayofmonth}</Text>
-                        )}
+                        renderItem={this._renderEvent}
+                        renderSectionHeader={this._renderSectionHeader}
                         keyExtractor={(item, index) => item + index}
                     />
                 )}
