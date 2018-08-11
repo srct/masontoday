@@ -5,7 +5,7 @@ import { Live25API } from 'masontoday/src/api';
 
 export default class EventList extends React.Component {
     state = {
-        events: [],
+        events: null,
     };
 
     componentDidMount() {
@@ -24,7 +24,7 @@ export default class EventList extends React.Component {
     render() {
         return (
             <SafeAreaView>
-                {this.state.events != [] && (
+                {!!this.state.events && (
                     <SectionList
                         sections={this.state.events}
                         renderItem={({ item, index, section }) => <Text key={index}>{JSON.stringify(item)}</Text>}
