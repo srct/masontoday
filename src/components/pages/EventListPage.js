@@ -4,7 +4,7 @@ import { SafeAreaView, Text, SectionList } from 'react-native';
 import { Live25API } from 'masontoday/src/api';
 import { EventCard } from 'masontoday/src/components';
 
-export default class EventList extends React.Component {
+export default class EventListPage extends React.Component {
     state = {
         events: null,
     };
@@ -22,9 +22,21 @@ export default class EventList extends React.Component {
         }
     }
 
-    _renderEvent = ({ item, index }) => <EventCard key={index} item={item} />;
+    _renderEvent = ({ item, index }) => (
+        <EventCard
+            key={index}
+            item={item}
+            onPress={() => {
+                this.props.navigation.navigate('EventDetails', {
+                    event: item,
+                });
+            }}
+        />
+    );
 
-    _renderSectionHeader = ({ section: { dayofmonth } }) => <Text style={{ fontSize: 40 }}>{dayofmonth}</Text>;
+    _renderSectionHeader = ({ section: { month, dayofmonth } }) => (
+        <Text style={{ fontSize: 30, textAlign: 'center' }}>{`${month} ${dayofmonth}`}</Text>
+    );
 
     render() {
         return (

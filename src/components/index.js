@@ -1,5 +1,5 @@
 import { EventCard } from './molecules';
-import { EventList } from './pages';
+import { EventListPage, EventDetailsPage } from './pages';
 
 export {
     // Atoms
@@ -7,5 +7,6 @@ export {
     EventCard,
     // Organisms
     // Pages
-    EventList,
+    EventListPage,
+    EventDetailsPage,
 };

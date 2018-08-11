@@ -1,3 +1,4 @@
-import EventList from './EventList';
+import EventListPage from './EventListPage';
+import EventDetailsPage from './EventDetailsPage';
 
-export { EventList };
+export { EventListPage, EventDetailsPage };

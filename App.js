@@ -1,11 +1,14 @@
 import { createStackNavigator } from 'react-navigation';
 
-import { EventList } from 'masontoday/src/components';
+import { EventListPage, EventDetailsPage } from 'masontoday/src/components';
 
 const App = createStackNavigator(
     {
-        Home: {
-            screen: EventList,
+        EventList: {
+            screen: EventListPage,
+        },
+        EventDetails: {
+            screen: EventDetailsPage,
         },
     },
     {
