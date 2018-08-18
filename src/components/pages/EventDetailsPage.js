@@ -5,12 +5,13 @@ export default class EventDetailsPage extends React.Component {
     render() {
         const { event } = this.props.navigation.state.params;
 
-        return <Text style={styles.title}>{event.title}</Text>;
+        return <Text style={styles.description}>{event.description}</Text>;
     }
 }
 
 const styles = StyleSheet.create({
-    title: {
+    description: {
         fontSize: 20,
+        padding: 20,
     },
 });
