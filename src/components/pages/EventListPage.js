@@ -62,6 +62,7 @@ export default class EventListPage extends React.Component {
         );
     }
 }
+
 const styles = StyleSheet.create({
     sectionHeader: {
         fontSize: 30,
