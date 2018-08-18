@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native';
-import moment from 'moment';
 import { filter } from 'lodash';
+import moment from 'moment';
 
 const QUALITIES = ['excellent', 'verygood', 'good', 'okay'];
 
