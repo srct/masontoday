@@ -54,6 +54,7 @@ export default class EventListPage extends React.Component {
                         renderItem={this._renderEvent}
                         renderSectionHeader={this._renderSectionHeader}
                         keyExtractor={(item, index) => item + index}
+                        showsVerticalScrollIndicator={false}
                         ListFooterComponent={() => <View height={10} />}
                     />
                 )}
