@@ -25,6 +25,19 @@ class DataManipulation {
         return formattedData;
     }
 
+    formatTime(minutesFromMidnight) {
+        let hours = Math.floor(minutesFromMidnight / 60);
+        let post = '';
+        if (hours < 12) {
+            post = 'AM';
+        } else {
+            post = 'PM';
+            if (hours > 12) hours = hours % 12;
+        }
+        const minutes = minutesFromMidnight % 60;
+        return `${hours}:${minutes == 0 ? '00' : minutes} ${post}`;
+    }
+
     async getStored25Live() {
         try {
             const data = JSON.parse(await AsyncStorage.getItem('masontoday:25live'));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text, SectionList } from 'react-native';
+import { View, SafeAreaView, Text, SectionList, StyleSheet } from 'react-native';
 
 import { Live25API } from 'masontoday/src/api';
 import { DataManipulation } from 'masontoday/src/utils';
@@ -32,7 +32,7 @@ export default class EventListPage extends React.Component {
     _renderEvent = ({ item, index }) => (
         <EventCard
             key={index}
-            item={item}
+            event={item}
             onPress={() => {
                 this.props.navigation.navigate('EventDetails', {
                     event: item,
@@ -42,7 +42,7 @@ export default class EventListPage extends React.Component {
     );
 
     _renderSectionHeader = ({ section: { month, dayofmonth } }) => (
-        <Text style={{ fontSize: 30, textAlign: 'center' }}>{`${month} ${dayofmonth}`}</Text>
+        <Text style={styles.sectionHeader}>{`${month} ${dayofmonth}`}</Text>
     );
 
     render() {
@@ -54,9 +54,17 @@ export default class EventListPage extends React.Component {
                         renderItem={this._renderEvent}
                         renderSectionHeader={this._renderSectionHeader}
                         keyExtractor={(item, index) => item + index}
+                        ListFooterComponent={() => <View height={10} />}
                     />
                 )}
             </SafeAreaView>
         );
     }
 }
+const styles = StyleSheet.create({
+    sectionHeader: {
+        fontSize: 30,
+        textAlign: 'center',
+        backgroundColor: '#e9e9ef',
+    },
+});
