@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, SectionList } from 'react-native';
 
 import { Live25API } from 'masontoday/src/api';
+import { DataManipulation } from 'masontoday/src/utils';
 import { EventCard } from 'masontoday/src/components';
 
 export default class EventListPage extends React.Component {
@@ -14,11 +15,17 @@ export default class EventListPage extends React.Component {
     }
 
     async loadData() {
+        const { getStored25Live, setStored25Live, formatData } = DataManipulation;
         try {
-            let events = await Live25API.getData();
+            const storedData = formatData(await getStored25Live());
+            if (storedData) this.setState({ events: storedData });
+
+            let events = formatData(await Live25API.getData());
             this.setState({ events });
+
+            await setStored25Live(events);
         } catch (err) {
-            console.warn(err);
+            console.error(err);
         }
     }
 
