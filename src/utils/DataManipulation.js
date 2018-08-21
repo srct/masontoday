@@ -12,12 +12,13 @@ class DataManipulation {
         }
 
         // removing days before current days
+        const now = moment();
         let formattedData = data;
-        if (moment(data[0].datetime).isBefore(moment(), 'day')) {
+        if (moment(data[0].datetime).isBefore(now, 'day')) {
             formattedData = [];
 
             for (let date of data) {
-                if (moment(date.datetime).isSameOrAfter(moment(), 'day')) {
+                if (moment(date.datetime).isSameOrAfter(now, 'day')) {
                     formattedData.push(date);
                 }
             }
