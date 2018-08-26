@@ -12,7 +12,7 @@ export default class EventDetailsPage extends React.Component {
                 <Text style={styles.title}>{event.title}</Text>
                 <Text style={styles.description}>{event.description}</Text>
                 <View style={styles.callToAction}>
-                    <CallToAction />
+                    <CallToAction event={event} />
                 </View>
             </SafeAreaView>
         );
