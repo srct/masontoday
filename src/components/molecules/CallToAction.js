@@ -59,7 +59,7 @@ export default class CallToAction extends React.Component {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: 60,
+        height: 55,
         backgroundColor: 'green',
         alignItems: 'center',
         justifyContent: 'center',
