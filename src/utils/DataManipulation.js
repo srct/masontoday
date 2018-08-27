@@ -6,6 +6,8 @@ const QUALITIES = ['excellent', 'verygood', 'good', 'okay'];
 
 class DataManipulation {
     formatData(data, qualities = QUALITIES) {
+        if (!data) return;
+
         // removing events that are of the incorrect quality
         for (let date of data) {
             date.data = filter(date.data, event => qualities.includes(event.quality));
