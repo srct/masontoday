@@ -12,6 +12,7 @@ const App = createStackNavigator(
         },
     },
     {
+        mode: 'modal',
         headerMode: 'none',
     }
 );

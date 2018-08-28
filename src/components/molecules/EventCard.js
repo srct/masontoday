@@ -12,7 +12,7 @@ export default class EventCard extends React.Component {
             <TouchableOpacity onPress={this.props.onPress} style={styles.container}>
                 <Text style={styles.title}>{event.title}</Text>
                 <Text>{`${formatTime(event.timestart)} - ${formatTime(event.timestop)}`}</Text>
-                <Text>{event.location}</Text>
+                <Text>{event.location[0]}</Text>
             </TouchableOpacity>
         );
     }
