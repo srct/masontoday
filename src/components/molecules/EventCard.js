@@ -10,9 +10,11 @@ export default class EventCard extends React.Component {
         // console.error(event);
         return (
             <TouchableOpacity onPress={this.props.onPress} style={styles.container}>
-                <Text style={styles.title}>{event.title}</Text>
-                <Text>{`${formatTime(event.timestart)} - ${formatTime(event.timestop)}`}</Text>
-                <Text>{event.location[0]}</Text>
+                <View style={styles.textWrapper}>
+                    <Text style={styles.title}>{event.title}</Text>
+                    <Text>{`${formatTime(event.timestart)} - ${formatTime(event.timestop)}`}</Text>
+                    <Text>{event.location[0]}</Text>
+                </View>
             </TouchableOpacity>
         );
     }
@@ -27,6 +29,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 8,
         minHeight: 70,
         padding: 5,
+    },
+    textWrapper: {
+        paddingHorizontal: 4,
     },
     title: {
         fontSize: 20,
