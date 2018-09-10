@@ -15,12 +15,12 @@ export default class EventListPage extends React.Component {
     }
 
     async loadData() {
-        const { getStored25Live, setStored25Live, formatData } = DataManipulation;
+        const { getStored25Live, setStored25Live, formatEvents } = DataManipulation;
         try {
-            const storedData = formatData(await getStored25Live());
+            const storedData = formatEvents(await getStored25Live());
             if (storedData) this.setState({ events: storedData });
 
-            let events = formatData(await Live25API.getData());
+            let events = formatEvents(await Live25API.getEvents());
             this.setState({ events });
 
             await setStored25Live(events);

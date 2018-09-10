@@ -5,7 +5,7 @@ class Live25API {
         this.urlprefix = 'api/25live';
     }
 
-    async getData() {
+    async getEvents() {
         try {
             const response = await fetch(`${masontodayAPI.URL}${this.urlprefix}`);
             const responseJson = await response.json();

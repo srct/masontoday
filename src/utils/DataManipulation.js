@@ -5,7 +5,7 @@ import moment from 'moment';
 const QUALITIES = ['excellent', 'verygood', 'good', 'okay'];
 
 class DataManipulation {
-    formatData(data, qualities = QUALITIES) {
+    formatEvents(data, qualities = QUALITIES) {
         if (!data) return;
 
         // removing events that are of the incorrect quality
@@ -13,18 +13,9 @@ class DataManipulation {
             date.data = filter(date.data, event => qualities.includes(event.quality));
         }
 
-        // removing days before current days
-        const now = moment();
-        let formattedData = data;
-        if (moment(data[0].datetime).isBefore(now, 'day')) {
-            formattedData = [];
+        // removing days before current day
+        let formattedData = filter(data, date => moment(date.datetime).isSameOrAfter(moment(), 'day'));
 
-            for (let date of data) {
-                if (moment(date.datetime).isSameOrAfter(now, 'day')) {
-                    formattedData.push(date);
-                }
-            }
-        }
         return formattedData;
     }
 
