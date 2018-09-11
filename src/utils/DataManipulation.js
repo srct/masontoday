@@ -42,6 +42,8 @@ class DataManipulation {
     }
 
     async setStored25Live(data) {
+        if (!data) return;
+
         try {
             await AsyncStorage.setItem('masontoday:25live', JSON.stringify(data));
         } catch (error) {
