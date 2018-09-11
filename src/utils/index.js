@@ -1,3 +1,4 @@
 import DataManipulation from './DataManipulation';
+import ErrorHandling from './ErrorHandling';
 
-export { DataManipulation };
+export { DataManipulation, ErrorHandling };

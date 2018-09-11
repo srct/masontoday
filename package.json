@@ -15,6 +15,7 @@
         "react-native": "0.56.0",
         "react-native-add-calendar-event": "^2.0.2",
         "react-native-app-settings": "^2.0.0",
+        "react-native-sentry": "^0.39.0",
         "react-navigation": "^2.6.2"
     },
     "devDependencies": {

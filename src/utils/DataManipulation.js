@@ -2,6 +2,8 @@ import { AsyncStorage } from 'react-native';
 import { filter } from 'lodash';
 import moment from 'moment';
 
+import { ErrorHandling } from 'masontoday/src/utils';
+
 const QUALITIES = ['excellent', 'verygood', 'good', 'okay'];
 
 class DataManipulation {
@@ -37,7 +39,8 @@ class DataManipulation {
             const data = JSON.parse(await AsyncStorage.getItem('masontoday:25live'));
             return data;
         } catch (error) {
-            console.error(error);
+            ErrorHandling.genericError(error);
+            return;
         }
     }
 
@@ -47,7 +50,8 @@ class DataManipulation {
         try {
             await AsyncStorage.setItem('masontoday:25live', JSON.stringify(data));
         } catch (error) {
-            console.error(error);
+            ErrorHandling.genericError(error);
+            return;
         }
     }
 }

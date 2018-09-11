@@ -1,4 +1,5 @@
 import masontodayAPI from './masontodayAPI';
+import { ErrorHandling } from 'masontoday/src/utils';
 
 class Live25API {
     constructor() {
@@ -11,7 +12,7 @@ class Live25API {
             const responseJson = await response.json();
             return responseJson;
         } catch (error) {
-            console.log(error);
+            ErrorHandling.networkError();
         }
     }
 }
