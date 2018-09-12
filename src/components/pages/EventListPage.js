@@ -21,7 +21,7 @@ export default class EventListPage extends React.Component {
             if (storedData) this.setState({ events: storedData });
 
             let events = formatEvents(await Live25API.getEvents());
-            this.setState({ events });
+            if (events) this.setState({ events });
 
             await setStored25Live(events);
         } catch (err) {
