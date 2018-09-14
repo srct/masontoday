@@ -47,7 +47,7 @@ export default class EventListPage extends React.Component {
 
     render() {
         return (
-            <SafeAreaView>
+            <SafeAreaView style={styles.container}>
                 {!!this.state.events && (
                     <SectionList
                         sections={this.state.events}
@@ -64,9 +64,13 @@ export default class EventListPage extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'white',
+    },
     sectionHeader: {
         fontSize: 30,
         textAlign: 'center',
-        backgroundColor: '#e9e9ef',
+        backgroundColor: 'white',
+        color: '#87908F',
     },
 });

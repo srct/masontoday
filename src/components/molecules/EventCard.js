@@ -23,7 +23,7 @@ export default class EventCard extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#e9e9ef',
         borderRadius: 4,
         margin: 4,
         marginHorizontal: 8,
@@ -35,5 +35,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
+        color: '#006633',
     },
 });

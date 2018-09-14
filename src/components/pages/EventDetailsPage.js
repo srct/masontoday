@@ -36,10 +36,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 15,
+        backgroundColor: 'white',
     },
     description: {
         fontSize: 20,
-        paddingHorizontal: 8,
+        paddingHorizontal: 16,
         paddingVertical: 10,
     },
     title: {
