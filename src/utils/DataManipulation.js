@@ -4,7 +4,8 @@ import moment from 'moment';
 
 import { ErrorHandling } from 'masontoday/src/utils';
 
-const QUALITIES = ['excellent', 'verygood', 'good', 'okay'];
+const QUALITIES = ['excellent', 'verygood', 'good'];
+// 'okay', 'none'
 
 class DataManipulation {
     formatEvents(data, qualities = QUALITIES) {
