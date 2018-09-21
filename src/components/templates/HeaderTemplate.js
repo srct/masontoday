@@ -18,8 +18,8 @@ export default class HeaderTemplate extends React.Component {
 const styles = StyleSheet.create({
     container: {
         // flex: 1,
-        height: 44,
-        marginTop: 12,
+        height: 64,
+        paddingTop: 20,
         backgroundColor: Colors.gray1,
         flexDirection: 'row',
         justifyContent: 'space-between',

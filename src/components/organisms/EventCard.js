@@ -22,7 +22,7 @@ export default class EventCard extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.gray1,
+        backgroundColor: Colors.gray4,
         borderRadius: 4,
         margin: 4,
         marginHorizontal: 8,
