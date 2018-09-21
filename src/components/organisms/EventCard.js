@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-import { DataManipulation } from 'masontoday/src/utils';
+import { DataManipulation, Colors } from 'masontoday/src/utils';
 
 export default class EventCard extends React.Component {
     render() {
         const { event } = this.props;
         const { formatTime } = DataManipulation;
-        // console.error(event);
         return (
             <TouchableOpacity onPress={this.props.onPress} style={styles.container}>
                 <View style={styles.textWrapper}>
@@ -23,7 +22,7 @@ export default class EventCard extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#e9e9ef',
+        backgroundColor: Colors.gray1,
         borderRadius: 4,
         margin: 4,
         marginHorizontal: 8,
@@ -36,6 +35,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: '500',
-        color: '#006633',
+        color: Colors.green1,
     },
 });

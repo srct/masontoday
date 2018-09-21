@@ -3,7 +3,7 @@ import { View, SafeAreaView, Text, SectionList, StyleSheet } from 'react-native'
 
 import { Live25API } from 'masontoday/src/api';
 import { DataManipulation } from 'masontoday/src/utils';
-import { EventCard } from 'masontoday/src/components';
+import { EventCard, PageTemplate } from 'masontoday/src/components';
 
 export default class EventListPage extends React.Component {
     state = {
@@ -47,7 +47,7 @@ export default class EventListPage extends React.Component {
 
     render() {
         return (
-            <SafeAreaView style={styles.container}>
+            <PageTemplate style={styles.container}>
                 {!!this.state.events && (
                     <SectionList
                         sections={this.state.events}
@@ -58,7 +58,7 @@ export default class EventListPage extends React.Component {
                         ListFooterComponent={() => <View height={10} />}
                     />
                 )}
-            </SafeAreaView>
+            </PageTemplate>
         );
     }
 }

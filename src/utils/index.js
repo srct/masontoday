@@ -1,4 +1,5 @@
 import DataManipulation from './DataManipulation';
 import ErrorHandling from './ErrorHandling';
+import { Colors } from './Styles';
 
-export { DataManipulation, ErrorHandling };
+export { DataManipulation, ErrorHandling, Colors };
