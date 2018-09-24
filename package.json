@@ -12,7 +12,7 @@
         "lodash": "^4.17.10",
         "moment": "^2.22.2",
         "react": "16.4.1",
-        "react-native": "0.56.0",
+        "react-native": "0.57.0",
         "react-native-add-calendar-event": "^2.0.2",
         "react-native-app-settings": "^2.0.0",
         "react-native-sentry": "^0.39.0",
