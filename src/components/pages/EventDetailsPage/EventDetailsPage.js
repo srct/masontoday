@@ -10,9 +10,7 @@ import TopBar from './TopBar';
 export default class EventDetailsPage extends React.Component {
     shareEvent(eventId) {
         Share.share({
-            // title: 'Best title ever!',
-            message: `Check out what i found on Masontoday! \n 
-            https://www2.gmu.edu/today-mason?trumbaEmbed=view%3Devent%26eventid%3D${eventId}`,
+            message: `Check out what I found on Masontoday!\nhttps://www2.gmu.edu/today-mason?trumbaEmbed=view%3Devent%26eventid%3D${eventId}`,
         });
     }
 
