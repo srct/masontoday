@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, Share } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
 import { CallToAction, HeaderTemplate, PageTemplate } from 'masontoday/src/components';
@@ -8,12 +8,21 @@ import { DataManipulation } from 'masontoday/src/utils';
 import TopBar from './TopBar';
 
 export default class EventDetailsPage extends React.Component {
+    shareEvent(eventId) {
+        Share.share({
+            message: `Check out what I found on Masontoday!\nhttps://www2.gmu.edu/today-mason?trumbaEmbed=view%3Devent%26eventid%3D${eventId}`,
+        });
+    }
+
     render() {
         const { event } = this.props.navigation.state.params;
         const { formatTime } = DataManipulation;
 
         return (
-            <PageTemplate header={<TopBar goBack={() => this.props.navigation.goBack()} />}>
+            <PageTemplate
+                header={
+                    <TopBar goBack={() => this.props.navigation.goBack()} onShare={() => this.shareEvent(event.id)} />
+                }>
                 <View style={styles.container}>
                     <ScrollView bounces={false}>
                         <View style={styles.header}>

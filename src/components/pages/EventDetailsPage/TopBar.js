@@ -17,7 +17,14 @@ export default class TopBar extends React.Component {
                         text={'Cancel'}
                     />
                 }
-                right={<View width={65} />}
+                right={
+                    <Button
+                        style={styles.buttonStyle}
+                        textStyle={styles.textStyle}
+                        onPress={this.props.onShare}
+                        text={'Share'}
+                    />
+                }
             />
         );
     }
