@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
 
 export default class PageTemplate extends React.Component {
     render() {
