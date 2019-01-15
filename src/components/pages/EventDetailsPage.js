@@ -1,17 +1,15 @@
 import React from 'react';
 import { View, StyleSheet, Text, ScrollView, Share, Button } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
 
 import { CallToAction, PageTemplate } from 'masontoday/src/components';
 import { DataManipulation, Colors } from 'masontoday/src/utils';
-
-import TopBar from './TopBar';
 
 function shareEvent(eventId) {
     Share.share({
         message: `Check out what I found on Masontoday!\nhttps://www2.gmu.edu/today-mason?trumbaEmbed=view%3Devent%26eventid%3D${eventId}`,
     });
 }
+
 export default class EventDetailsPage extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
