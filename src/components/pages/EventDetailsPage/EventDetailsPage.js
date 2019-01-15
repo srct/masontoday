@@ -1,28 +1,37 @@
 import React from 'react';
-import { View, StyleSheet, Text, ScrollView, Share } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, Share, Button } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
-import { CallToAction, HeaderTemplate, PageTemplate } from 'masontoday/src/components';
-import { DataManipulation } from 'masontoday/src/utils';
+import { CallToAction, PageTemplate } from 'masontoday/src/components';
+import { DataManipulation, Colors } from 'masontoday/src/utils';
 
 import TopBar from './TopBar';
 
+function shareEvent(eventId) {
+    Share.share({
+        message: `Check out what I found on Masontoday!\nhttps://www2.gmu.edu/today-mason?trumbaEmbed=view%3Devent%26eventid%3D${eventId}`,
+    });
+}
 export default class EventDetailsPage extends React.Component {
-    shareEvent(eventId) {
-        Share.share({
-            message: `Check out what I found on Masontoday!\nhttps://www2.gmu.edu/today-mason?trumbaEmbed=view%3Devent%26eventid%3D${eventId}`,
-        });
-    }
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: 'Details',
+            headerRight: (
+                <Button
+                    onPress={() => shareEvent(navigation.getParam('event').id)}
+                    title="Share"
+                    color={Colors.green1}
+                />
+            ),
+        };
+    };
 
     render() {
         const { event } = this.props.navigation.state.params;
         const { formatTime } = DataManipulation;
 
         return (
-            <PageTemplate
-                header={
-                    <TopBar goBack={() => this.props.navigation.goBack()} onShare={() => this.shareEvent(event.id)} />
-                }>
+            <PageTemplate>
                 <View style={styles.container}>
                     <ScrollView bounces={false}>
                         <View style={styles.header}>
