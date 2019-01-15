@@ -2,7 +2,7 @@ import { Button } from './atoms';
 import { CallToAction } from './molecules';
 import { EventListPage, EventDetailsPage } from './pages';
 import { EventCard } from './organisms';
-import { HeaderTemplate, PageTemplate } from './templates';
+import { PageTemplate } from './templates';
 
 export {
     // Atoms
@@ -15,6 +15,5 @@ export {
     EventListPage,
     EventDetailsPage,
     //Templates
-    HeaderTemplate,
     PageTemplate,
 };

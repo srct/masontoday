@@ -6,6 +6,9 @@ import { DataManipulation } from 'masontoday/src/utils';
 import { EventCard, PageTemplate } from 'masontoday/src/components';
 
 export default class EventListPage extends React.Component {
+    static navigationOptions = {
+        title: 'Events',
+    };
     state = {
         events: null,
     };
