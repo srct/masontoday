@@ -5,7 +5,7 @@
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "start:ios": "react-native run-ios",
-        "start:android": "react-native run-android",
+        "start:android": "react-native run-android"
     },
     "dependencies": {
         "lodash": "^4.17.10",
@@ -19,8 +19,8 @@
         "react-navigation": "^3.0.9"
     },
     "devDependencies": {
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "24.1.0",
-    "metro-react-native-babel-preset": "0.51.1"
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-jest": "24.1.0",
+        "metro-react-native-babel-preset": "0.51.1"
     }
 }
