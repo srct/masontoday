@@ -3,8 +3,8 @@ package com.masontoday;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import io.sentry.RNSentryPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.krazylabs.OpenAppSettingsPackage;
 import com.vonovak.AddCalendarEventPackage;
 import com.facebook.react.ReactNativeHost;
@@ -27,8 +27,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNGestureHandlerPackage(),
             new RNSentryPackage(),
+            new RNGestureHandlerPackage(),
             new OpenAppSettingsPackage(),
             new AddCalendarEventPackage()
       );
