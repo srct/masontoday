@@ -3726,17 +3726,17 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-native-add-calendar-event@^2.0.2:
+react-native-add-calendar-event@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-native-add-calendar-event/-/react-native-add-calendar-event-2.3.0.tgz#4992c7c65bbceb641b451a4a50530fc164711476"
   integrity sha512-Hl3rvgo0Hi34lty6qVsBoakxkvnDHITrpeYi2/xC1Txxt1wb8uiKP8YHa5weWoYs6acaOlwFGINMuswlNy+ZZA==
 
-react-native-app-settings@^2.0.0:
+react-native-app-settings@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-native-app-settings/-/react-native-app-settings-2.0.1.tgz#97befc92813952750fa9efffc2692cbc39300960"
   integrity sha512-MmYtXQbPBJ0tlAmn4MeeOOjrSR9Cup4PI4HFSsETDGUMrOGmb7WETrQ/9bZ06BeisNnqf8/Qj+efgH+OmFYDjQ==
 
-react-native-gesture-handler@^1.0.12, react-native-gesture-handler@~1.0.14:
+react-native-gesture-handler@^1.0.15, react-native-gesture-handler@~1.0.14:
   version "1.0.15"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.15.tgz#7e0d0a457820a3c9325a3d492daaed14400508a6"
   integrity sha512-BePn+YOKcspHb1xPkUdJs+H6jiaECrT2c98txADBYWHwuUeundE+uUJG0r3FQLFvM2MoGeiJeD96sePzk+WSvQ==
@@ -3757,10 +3757,10 @@ react-native-safe-area-view@^0.12.0:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
   integrity sha512-kSyAt0AeVU6N7ZonfV6dP6iZF8B7Bce+tk3eujXhzBGsLg0VSLnU7uE9VqJF0xdQrHR91ZjGgVMieo/8df9KTA==
 
-react-native-sentry@^0.39.0:
-  version "0.39.1"
-  resolved "https://registry.yarnpkg.com/react-native-sentry/-/react-native-sentry-0.39.1.tgz#61fc1214515bea614f03aa9f76fee1b48aae3671"
-  integrity sha512-WnKyJj2WXsoTnulKwfdLbId/qy8ANiBryi3fVBO9MMcsa1jQY6W2mDuj8RFa5zmjf+9UL3KILagTbi+Nm5Y5Qw==
+react-native-sentry@^0.41.1:
+  version "0.41.1"
+  resolved "https://registry.yarnpkg.com/react-native-sentry/-/react-native-sentry-0.41.1.tgz#61a99fb66486fb9fa878fa5c853447c93104aa1b"
+  integrity sha512-7mUbHhv8zGR6yrpazXtriGIbmd9wzp3vJy8fH4eQoeciYo+664EXD/t/M3ZAxByw1J+wvHWzKvfXMZ+qp4MfSg==
   dependencies:
     "@sentry/wizard" "^0.12.1"
     raven-js "^3.24.2"
@@ -3852,7 +3852,7 @@ react-navigation-tabs@1.0.2:
     react-lifecycles-compat "^3.0.4"
     react-native-tab-view "^1.0.0"
 
-react-navigation@^3.0.9:
+react-navigation@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-3.2.1.tgz#83873d5fe25ec870455d9760b98df6e915fe2d65"
   integrity sha512-l0vm1orpEAeMdPxTLbe0xxqUDtCVAcgT8q0+xwGnmRT1+2QhRYXSAjQ1md3RJaeg1wCnlfxtMbLUnkf5z4cDkw==
@@ -4828,9 +4828,9 @@ xcode@^1.0.0:
     simple-plist "^0.2.1"
     uuid "^3.3.2"
 
-"xcode@git+https://github.com/apache/cordova-node-xcode.git#e7646f0680d509b590b839e567c217590451505b":
+"xcode@https://github.com/apache/cordova-node-xcode#e7646f0680d509b590b839e567c217590451505b":
   version "1.0.1-dev"
-  resolved "git+https://github.com/apache/cordova-node-xcode.git#e7646f0680d509b590b839e567c217590451505b"
+  resolved "https://github.com/apache/cordova-node-xcode#e7646f0680d509b590b839e567c217590451505b"
   dependencies:
     simple-plist "^0.2.1"
     uuid "3.0.1"
