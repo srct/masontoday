@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, ScrollView, Share, Button } from 'react-native';
+import { View, Platform, StyleSheet, Text, ScrollView, Share, Button } from 'react-native';
 
 import { CallToAction, PageTemplate } from 'masontoday/src/components';
 import { DataManipulation, Colors } from 'masontoday/src/utils';
@@ -15,11 +15,13 @@ export default class EventDetailsPage extends React.Component {
         return {
             title: 'Details',
             headerRight: (
-                <Button
-                    onPress={() => shareEvent(navigation.getParam('event').id)}
-                    title="Share"
-                    color={Colors.green1}
-                />
+                <View style={styles.buttonWrapper}>
+                    <Button
+                        onPress={() => shareEvent(navigation.getParam('event').id)}
+                        title="Share"
+                        color={Colors.green1}
+                    />
+                </View>
             ),
         };
     };
@@ -81,5 +83,8 @@ const styles = StyleSheet.create({
     callToAction: {
         flex: 1,
         justifyContent: 'flex-end',
+    },
+    buttonWrapper: {
+        paddingRight: Platform.OS === 'ios' ? 0 : 10,
     },
 });
