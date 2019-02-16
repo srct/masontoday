@@ -1,6 +1,6 @@
 import { Button } from './atoms';
 import { CallToAction } from './molecules';
-import { EventListPage, EventDetailsPage } from './pages';
+import { EventListPage, EventDetailsPage, SettingsPage } from './pages';
 import { EventCard } from './organisms';
 import { PageTemplate } from './templates';
 
@@ -14,6 +14,7 @@ export {
     // Pages
     EventListPage,
     EventDetailsPage,
+    SettingsPage,
     //Templates
     PageTemplate,
 };

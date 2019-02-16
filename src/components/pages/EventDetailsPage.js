@@ -4,12 +4,6 @@ import { View, Platform, StyleSheet, Text, ScrollView, Share, Button } from 'rea
 import { CallToAction, PageTemplate } from 'masontoday/src/components';
 import { DataManipulation, Colors } from 'masontoday/src/utils';
 
-function shareEvent(eventId) {
-    Share.share({
-        message: `Check out what I found on Masontoday!\nhttps://www2.gmu.edu/today-mason?trumbaEmbed=view%3Devent%26eventid%3D${eventId}`,
-    });
-}
-
 export default class EventDetailsPage extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
@@ -17,7 +11,7 @@ export default class EventDetailsPage extends React.Component {
             headerRight: (
                 <View style={styles.buttonWrapper}>
                     <Button
-                        onPress={() => shareEvent(navigation.getParam('event').id)}
+                        onPress={() => this.shareEvent(navigation.getParam('event').id)}
                         title="Share"
                         color={Colors.green1}
                     />
@@ -25,6 +19,12 @@ export default class EventDetailsPage extends React.Component {
             ),
         };
     };
+
+    shareEvent(eventId) {
+        Share.share({
+            message: `Check out what I found on Masontoday!\nhttps://www2.gmu.edu/today-mason?trumbaEmbed=view%3Devent%26eventid%3D${eventId}`,
+        });
+    }
 
     render() {
         const { event } = this.props.navigation.state.params;

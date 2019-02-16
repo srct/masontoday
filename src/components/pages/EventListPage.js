@@ -1,14 +1,22 @@
 import React from 'react';
-import { View, SafeAreaView, Text, SectionList, StyleSheet } from 'react-native';
+import { View, Platform, Button, Text, SectionList, StyleSheet } from 'react-native';
 
 import { Live25API } from 'masontoday/src/api';
-import { DataManipulation } from 'masontoday/src/utils';
+import { DataManipulation, Colors } from 'masontoday/src/utils';
 import { EventCard, PageTemplate } from 'masontoday/src/components';
 
 export default class EventListPage extends React.Component {
-    static navigationOptions = {
-        title: 'Events',
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: 'Events',
+            headerRight: (
+                <View style={styles.buttonWrapper}>
+                    <Button onPress={() => navigation.navigate('Settings')} title="Settings" color={Colors.green1} />
+                </View>
+            ),
+        };
     };
+
     state = {
         events: null,
     };
@@ -75,5 +83,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         backgroundColor: 'white',
         color: '#444444',
+    },
+    buttonWrapper: {
+        paddingRight: Platform.OS === 'ios' ? 0 : 10,
     },
 });
