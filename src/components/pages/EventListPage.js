@@ -4,6 +4,7 @@ import { View, SafeAreaView, Text, SectionList, StyleSheet } from 'react-native'
 import { Live25API } from 'masontoday/src/api';
 import { DataManipulation } from 'masontoday/src/utils';
 import { EventCard, PageTemplate } from 'masontoday/src/components';
+import SplashScreen from 'react-native-splash-screen';
 
 export default class EventListPage extends React.Component {
     static navigationOptions = {
@@ -15,6 +16,7 @@ export default class EventListPage extends React.Component {
 
     componentDidMount() {
         this.loadData();
+        SplashScreen.hide();
     }
 
     async loadData() {
