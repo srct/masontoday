@@ -16,7 +16,7 @@ export default class EventListPage extends React.Component {
 
     componentDidMount() {
         this.loadData();
-        // SplashScreen.hide();
+        SplashScreen.hide();
     }
 
     async loadData() {
