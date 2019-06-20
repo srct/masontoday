@@ -15,7 +15,7 @@
         "react-native-add-calendar-event": "^2.3.0",
         "react-native-app-settings": "^2.0.1",
         "react-native-gesture-handler": "^1.0.15",
-        "react-native-sentry": "^0.41.1",
+        "react-native-sentry": "^0.43.0",
         "react-native-splash-screen": "3.0.6",
         "react-navigation": "^3.2.1"
     },
