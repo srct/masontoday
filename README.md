@@ -1,3 +1,5 @@
+> NOTICE: THIS PROJECT HAS BEEN DEPRECATED
+
 # masontoday
 React Native: An application to inform people what is happening at george mason, today!
 
