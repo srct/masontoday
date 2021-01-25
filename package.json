@@ -1,27 +1,31 @@
 {
-    "name": "masontoday",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-        "start": "node node_modules/react-native/local-cli/cli.js start",
-        "start:ios": "react-native run-ios",
-        "start:android": "react-native run-android"
-    },
-    "dependencies": {
-        "lodash": "^4.17.10",
-        "moment": "^2.22.2",
-        "react": "16.6.3",
-        "react-native": "0.57.8",
-        "react-native-add-calendar-event": "^2.3.0",
-        "react-native-app-settings": "^2.0.1",
-        "react-native-gesture-handler": "^1.0.15",
-        "react-native-sentry": "^0.41.1",
-        "react-native-splash-screen": "3.0.6",
-        "react-navigation": "^3.2.1"
-    },
-    "devDependencies": {
-        "babel-core": "^7.0.0-bridge.0",
-        "babel-jest": "24.1.0",
-        "metro-react-native-babel-preset": "0.51.1"
-    }
+  "name": "masontoday",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start:ios": "react-native run-ios",
+    "start:android": "react-native run-android",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "react": "16.6.3",
+    "react-native": "0.60.0",
+    "react-native-add-calendar-event": "^2.3.0",
+    "react-native-app-settings": "^2.0.1",
+    "react-native-gesture-handler": "^1.0.15",
+    "react-native-sentry": "^0.41.1",
+    "react-native-splash-screen": "3.0.6",
+    "react-navigation": "^3.2.1",
+    "snyk": "^1.189.0"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "24.1.0",
+    "metro-react-native-babel-preset": "0.51.1"
+  },
+  "snyk": true
 }
